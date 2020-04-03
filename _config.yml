@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Arnaud Fickinger / Personal Website"
+title                    : "Arnaud Fickinger"
 title_separator          : "-"
 name                     : &name "Arnaud Fickinger"
 description              : &description "PhD Student at UC Berkeley"
