@@ -6,18 +6,18 @@ tags:
   - lectures
 ---
 
-Flows
+Flow Models
 =
 
 We got samples $(x_1, ..., x_n) \in X^n, X\subset \mathbb{R} \$ from un unknown probability distribution $p \in \Delta X$. We want
 to fit the parameters of a model distribution $p_{\theta}$ and sample from it. If we have an idea of the form of $p$,
 we can directly optimize $\theta$ for the log-likelihood of the data:
 
-$$\theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i)$$
+$$\label{eq:1} \theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i)$$
 
 eieieieie
 
-$$ \begin{equation} \label{eq:1} \theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i) \end{equation} $$
+$$ \begin{equation} \theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i) \end{equation} $$
 
 ieieieieie
 
