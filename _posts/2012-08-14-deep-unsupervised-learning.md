@@ -22,7 +22,7 @@ $$p_{\theta}(x)dx = p(z)dz \\
     z \sim \mathcal{N}(0,1)
     $$
 By injecting this in the log-likelihood of the data, the optimization problem becomes:
-$$\theta^* = \text{argmax}_{\theta} \sum^n \log p(f_{\theta}(x_i)) + \log \frac{df_{\theta}}{dx}(x_i)$$
+$$\theta^* = \text{argmax}_{\theta} \sum^n \log p(f_{\theta}(x_i)) + \log |\frac{df_{\theta}}{dx}(x_i)|$$
      
   
   
