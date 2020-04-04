@@ -9,7 +9,7 @@ tags:
 # Flow Models
 
 
-We got samples $(x_1, ..., x_n) \in X^n, X\subset \mathbb{R} \$ from un unknown probability distribution $p \in \Delta X$. We want
+We got samples $(x_1, ..., x_n) \in X^n, X\subset \mathbb{R} \$ from an unknown probability distribution $p \in \Delta X$. We want
 to fit the parameters of a model distribution $p_{\theta}$ and sample from it. If we have an idea of the form of $p$,
 we can directly optimize $\theta$ for the log-likelihood of the data:
 
