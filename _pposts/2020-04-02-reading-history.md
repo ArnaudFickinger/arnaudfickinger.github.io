@@ -1,7 +1,7 @@
 ---
 title: 'Reading History'
 date: 2020-04-02
-permalink: /posts/2020/04/reading-history/
+permalink: /pposts/2020/04/reading-history/
 tags:
   - reading
   - research
