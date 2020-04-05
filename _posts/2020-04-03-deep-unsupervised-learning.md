@@ -30,6 +30,8 @@ By injecting this model $\ref{eq:2}$ in the log-likelihood of the data $\ref{eq:
 $$\theta^* = \text{argmax}_{\theta} \sum^n \log p(f_{\theta}(x_i)) + \log |\frac{df_{\theta}}{dx}(x_i)|$$
      
 >Is there a derivative operator in the AutoDif package? What is the coast to include the derivative of the output in the objective?
+>
+>In PyTorch the method torch.autograd.grad() can be used to include derivative in the objective
 
 In practice we represent the flow $f$ as the output of a neural network and optimize $\theta$ using stochastic gradient descent.
 Once $\theta$ has been optimized we can sample from $p$ following:
@@ -38,6 +40,21 @@ $$ z \sim \mathcal{N}(0,1) \\
     x = f_{\theta}^{-1}(z)
     $$
     
->What is the family of invertible NN and how can we efficiently invert the output?
+>What is the family of invertible NN and how can we efficiently invert the output? 
+>
+>Any compositions of invertible and differentiable functions is also invertible and differentiable. For a 
+>continuous variable, we just have to take invertible activation functions like Sigmoid or Tanh. For more dimension, we might make sure that the weight matrices keep invertible.
+
+Coming back to our first motivation to alleviate model mis-specification, we might wonder how large is the set of distributions 
+we can reach with this method. For continuous one-dimensional variable, every distribution can be reached by a flow. To see that, consider 
+a distribution $p \in \Delta \mathbb{R}$ with Cumulative Distribution Function $F$ and define $F^{-1}$ as:
+
+$$\forall u \in [0,1], F^{-1}(u) = \inf \{x: F(x)=u\}$$
+
+Then, if U is the uniform distribution on [0,1], the CDF of $F^{-1}(U)$ is F:
+
+$$
+\forall x \in \mathbb{R}, p(F^{-1}(U)\leq x) = p(U \leq F(x)) = F(x)
+$$
   
 

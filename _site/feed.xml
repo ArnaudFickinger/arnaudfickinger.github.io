@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T22:04:31-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Arnaud Fickinger</title><subtitle>PhD Student at UC Berkeley</subtitle><author><name>Your Sidebar Name</name></author><entry><title type="html">Future Blog Post</title><link href="http://localhost:4000/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00-08:00</published><updated>2199-01-01T00:00:00-08:00</updated><id>http://localhost:4000/posts/2012/08/future-post</id><content type="html" xml:base="http://localhost:4000/posts/2012/08/blog-post-4/">&lt;p&gt;This post will show up by default. To disable scheduling of future posts, edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.yml&lt;/code&gt; and set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;future: false&lt;/code&gt;.&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html">This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.</summary></entry><entry><title type="html">Experiments Report</title><link href="http://localhost:4000/posts/2020/04/experiments-report/" rel="alternate" type="text/html" title="Experiments Report" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/experiments-report</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/experiments-report/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;best-response-to-maxentirl-for-a-single-agent&quot;&gt;Best response to MaxEntIRL for a single agent&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let me recall the objective: I want to get the same trajectory as in &lt;a href=&quot;https://arxiv.org/pdf/1606.03137.pdf&quot;&gt;CIRL&lt;/a&gt;:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/cirl_br.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Results: With a weight large enough on the regularizer, I end up with this trajectory and a bad recovered reward:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/result_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;By comparison, the expert obtains a better reward globally:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/result_2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;My hypothesis is that I would have better result without embedding into the feature space during the QP solving. To test it tomorrow, 
+  I will print the feature count and the svf and see if the regularized has a better feature count.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let me recall some thoughts I had before today:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Protocol: I recreate the same environment with 3 features and I write a quadratic program to regularize the trajectory&lt;/li&gt;
+      &lt;li&gt;Observations:
+        &lt;ul&gt;
+          &lt;li&gt;To get the expected feature count that will be served to regularize my trajectory, I need to solve the LP
+  for a finite horizon, otherwise the expected feature count will be too big and not reachable by the solution to my QP, so 
+  the trajectory won’t be regularized&lt;/li&gt;
+          &lt;li&gt;The features are not symmetric on the original environment so the expected feature count has more weight on the first feature.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Measurement: To compare the reward recovered by different trajectories, I use the same initialization for the reward weight. I need 
+  to be careful to make a copy of the initial reward with &lt;em&gt;numpy.copy()&lt;/em&gt; at each new call of the MaxEntIRL solver.&lt;/li&gt;
+      &lt;li&gt;Results:&lt;/li&gt;
+      &lt;li&gt;Conclusions: I should test with symmetric features&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="experiments" /><summary type="html">April 4, 2020</summary></entry><entry><title type="html">Gibbard’s Theorem and Inverse Reinforcement Learning</title><link href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" rel="alternate" type="text/html" title="Gibbard's Theorem and Inverse Reinforcement Learning" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+
+&lt;p&gt;In this post I will show that when an IRL system aggregates demonstrations from multiple humans, the best response trajectory for a self-interested human
+is not the expert trajectory.&lt;/p&gt;
+
+&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+
+&lt;p&gt;Social choice theory is the branch of Economics modeling and analyzing collective decision-making
+from the perspective of aggregating individual preferences. For example it is concerned with the 
+design of fair voting systems. It is closely related to mechanism design, a branch of Game Theory
+that is concerned with designing games where strategic players are incentivized to act truthfully. 
+An important theorem lying at the intersection of both disciplines is the following: &lt;em&gt;any non-dictatorial
+voting scheme with at least three possible outcomes is subject to individual manipulation&lt;/em&gt;. In other words,
+knowing the preferences of the others and adapting yours in consequence might change the outcome
+in your advantage.&lt;/p&gt;
+
+&lt;p&gt;In Inverse Reinforcement Learning, preferences are not shared directly to the system. Instead, the 
+system observes a states-actions trajectory and compute a reward function such that the observed trajectory 
+would have been produced by an optimal policy under that reward. For complex tasks, a lot of trajectories are 
+aggregated in order to compute a good estimate of the reward function. Yet it is always assumed that the 
+trajectories can be explained by the same reward function. In light of the issue in social 
+choice theory discussed above, the question we want to answer is: &lt;em&gt;if an IRL system aims to compute the collective
+preferences of two individuals by aggregating their two trajectories, does the expert trajectory remain the best response
+of each individual?&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;experiment&quot;&gt;Experiment&lt;/h1&gt;
+
+&lt;h1 id=&quot;related-work&quot;&gt;Related Work&lt;/h1&gt;
+
+&lt;p&gt;Because we compute the best response to an IRL system, our work is similar to Cooperative Inverse Reinforcement Learning. 
+In this work, Hadfield-Menell et al. shows that the best response trajectory to an IRL system trying to infer
+the preferences of a single human is not the expert trajectory, but rather involve active teaching.&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><summary type="html">Abstract</summary></entry><entry><title type="html">Goals</title><link href="http://localhost:4000/posts/2020/04/goals/" rel="alternate" type="text/html" title="Goals" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/goals</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/goals/">&lt;h1 id=&quot;research-goals-for-my-phd&quot;&gt;Research Goals for my PhD&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create an Artificial Intelligence that can&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Does knowing if we can create IRL with good mechanism design is really interesting for me?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What do I want to know about multiagent systems?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Am I interested in concrete applications like robotics?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I want to show that intelligence can be created with multiagent systems, that is dive into the &lt;a href=&quot;https://arxiv.org/abs/1903.00742&quot;&gt;autocurica&lt;/a&gt; idea of DeepMind. Formalize
+emrgent behaviors, connect it to other disciplines (biology, history, philosophy, economics, etc.). What applications in the real world can I imagine?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;professional-goals&quot;&gt;Professional Goals&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Be Millionaire by 30&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;personal-goals&quot;&gt;Personal Goals&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Always be in a powerful state
+    &lt;ul&gt;
+      &lt;li&gt;Fight depression
+        &lt;ul&gt;
+          &lt;li&gt;Set all my daily actions into bigger goals&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Fight tiredness
+        &lt;ul&gt;
+          &lt;li&gt;Expose to the sun in the morning&lt;/li&gt;
+          &lt;li&gt;Drink a lot of water right after bed&lt;/li&gt;
+          &lt;li&gt;No computer after 10&lt;/li&gt;
+          &lt;li&gt;No cofee, no tobacco, no drugs, no alcohol&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Fight negativity
+        &lt;ul&gt;
+          &lt;li&gt;Always taking care of beginning of negative thoughts&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="self-development" /><summary type="html">Research Goals for my PhD</summary></entry><entry><title type="html">Daily Progress</title><link href="http://localhost:4000/pposts/2020/04/daily-progress/" rel="alternate" type="text/html" title="Daily Progress" /><published>2020-04-03T00:00:00-07:00</published><updated>2020-04-03T00:00:00-07:00</updated><id>http://localhost:4000/pposts/2020/04/daily-progress</id><content type="html" xml:base="http://localhost:4000/pposts/2020/04/daily-progress/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;I have spent the day trying to implement the best response to maxirl. I have created an experiment journal, I think I will feel that kind of day more useful with that, it trains me how to communicate about my experiment, it forces me to understand what I do and I will be more productive not trying the same thing twice.&lt;/li&gt;
+  &lt;li&gt;I have continued to watch Abbeel’s lecture. I really think that this format is good (30min) but I should be sure that I don’t spend long time to write the post. Ideally, 20 minutes of watching
+and 10 minutes of writing.&lt;/li&gt;
+  &lt;li&gt;SD: The &lt;a href=&quot;https://www.youtube.com/watch?v=UMmOQCf98-k&quot;&gt;interviewed businessman&lt;/a&gt; talked about reading every day a paper where he wrote his goals. I have created the post goals because of that, I think it’s always good
+to understand his small daily actions as part of a long-term goal. He also gave a concrete technique: if we are not in the powerful state, breath 6 times and AIA: awareness (what i’m thinking), intention (what I want to do), action (small action to handle it).&lt;/li&gt;
+  &lt;li&gt;Gonna shut down computers at 10 and take melatonin, let’s not put any alarm and write down what time I wake up. Tomorrow let’s try to not take melatonin anymore.
+    &lt;blockquote&gt;
+      &lt;p&gt;Tomorrow, let’s continue the experiment on MACIRL and send to Dylan and Simon (this time for real!) and think about the theory: can we prove a gibbard version for sequential decision-making and observations?
+I should read different versions of the proof of Gibbard. Maybe start with a multi-armed bandit setting. Then, I want to think about my coordination IL project, write a post about it and read Abbeel’s article. Then,
+continue the tutorial on openai, implement PPO and make it work for my multi agent environment. Start to think about a post about multiagent systems and the emergence of behaviors.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;april-3-2020&quot;&gt;April 3, 2020&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;I have finally finished my first memo for the Beneficial AI class. It’s a good idea to do memos for every lectures, what about publishing memo as posts?&lt;/li&gt;
+  &lt;li&gt;I have created this website. Let’s try to update it daily.&lt;/li&gt;
+  &lt;li&gt;I have done the homework 9 for the EECS227 class. I should really do one exercise per day, would be more productive I think.&lt;/li&gt;
+  &lt;li&gt;I have started to watch the deep unsupervised lecture from Abbeel. I think a good method is to watch 30min then put what we think is important in a post.&lt;/li&gt;
+  &lt;li&gt;Self-Development: The &lt;a href=&quot;https://www.youtube.com/watch?v=PE0TedFPgH8&quot;&gt;interviewed neuroscientist&lt;/a&gt; told about how we can transform our brain by just imagining success or being surrounded by successful people. 
+I should never forget that: being surrounded by other smart PhD students is an advantage. What I am watching and who I am speaking to influence my brain. I should definitely talk to Abbeel.
+    &lt;blockquote&gt;
+      &lt;p&gt;Tomorrow, after putting the bag in Yuting’s place, finish the MACIRL experiment and send the result to Dylan and Simon&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="self-development" /><summary type="html">April 4, 2020 I have spent the day trying to implement the best response to maxirl. I have created an experiment journal, I think I will feel that kind of day more useful with that, it trains me how to communicate about my experiment, it forces me to understand what I do and I will be more productive not trying the same thing twice. I have continued to watch Abbeel’s lecture. I really think that this format is good (30min) but I should be sure that I don’t spend long time to write the post. Ideally, 20 minutes of watching and 10 minutes of writing. SD: The interviewed businessman talked about reading every day a paper where he wrote his goals. I have created the post goals because of that, I think it’s always good to understand his small daily actions as part of a long-term goal. He also gave a concrete technique: if we are not in the powerful state, breath 6 times and AIA: awareness (what i’m thinking), intention (what I want to do), action (small action to handle it). Gonna shut down computers at 10 and take melatonin, let’s not put any alarm and write down what time I wake up. Tomorrow let’s try to not take melatonin anymore. Tomorrow, let’s continue the experiment on MACIRL and send to Dylan and Simon (this time for real!) and think about the theory: can we prove a gibbard version for sequential decision-making and observations? I should read different versions of the proof of Gibbard. Maybe start with a multi-armed bandit setting. Then, I want to think about my coordination IL project, write a post about it and read Abbeel’s article. Then, continue the tutorial on openai, implement PPO and make it work for my multi agent environment. Start to think about a post about multiagent systems and the emergence of behaviors.</summary></entry><entry><title type="html">Deep Unsupervised Learning</title><link href="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/" rel="alternate" type="text/html" title="Deep Unsupervised Learning" /><published>2020-04-03T00:00:00-07:00</published><updated>2020-04-03T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/deep-unsupervised-learning</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/">&lt;h1 id=&quot;flow-models&quot;&gt;Flow Models&lt;/h1&gt;
+
+&lt;p&gt;We got samples $(x_1, …, x_n) \in X^n, X\subset \mathbb{R} $ from an unknown probability distribution $p \in \Delta X$. We want
+to fit the parameters of a model distribution $p_{\theta}$ and sample from it. If we have an idea of the form of $p$,
+we can directly optimize $\theta$ for the log-likelihood of the data:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:1} \theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i)&lt;/script&gt;
+
+&lt;p&gt;Yet in the real world we have no idea of the form that might have $p$ and we don’t want to have issue due to
+&lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/01/10/latent-variables-and-model-mis-specification/&quot;&gt;model mis-specification&lt;/a&gt;.
+  Therefore we want to optimize with the minimum of assumption on the structure of $p$. Here we only assume that
+  $p$ has been obtained by transforming a known distribution (a gaussian for example) with a differentiable and invertible function:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:2} p_{\theta}(x)dx = p(z)dz \\
+    z = f_{\theta}(x) \\
+    z \sim \mathcal{N}(0,1)&lt;/script&gt;
+
+&lt;p&gt;By injecting this model $\ref{eq:2}$ in the log-likelihood of the data $\ref{eq:1}$, the optimization problem becomes:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta^* = \text{argmax}_{\theta} \sum^n \log p(f_{\theta}(x_i)) + \log |\frac{df_{\theta}}{dx}(x_i)|&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Is there a derivative operator in the AutoDif package? What is the coast to include the derivative of the output in the objective?&lt;/p&gt;
+
+  &lt;p&gt;In PyTorch the method torch.autograd.grad() can be used to include derivative in the objective&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In practice we represent the flow $f$ as the output of a neural network and optimize $\theta$ using stochastic gradient descent.
+Once $\theta$ has been optimized we can sample from $p$ following:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z \sim \mathcal{N}(0,1) \\
+    x = f_{\theta}^{-1}(z)&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What is the family of invertible NN and how can we efficiently invert the output?&lt;/p&gt;
+
+  &lt;p&gt;Any compositions of invertible and differentiable functions is also invertible and differentiable. For a 
+continuous variable, we just have to take invertible activation functions like Sigmoid or Tanh. For more dimension, we might make sure that the weight matrices keep invertible.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Coming back to our first motivation to alleviate model mis-specification, we might wonder how large is the set of distributions 
+we can reach with this method. For continuous one-dimensional variable, every distribution can be reached by a flow. To see that, consider 
+a distribution $p \in \Delta \mathbb{R}$ with Cumulative Distribution Function $F$ and define $F^{-1}$ as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall u \in [0,1], F^{-1}(u) = \inf \{x: F(x)=u\}&lt;/script&gt;
+
+&lt;p&gt;Then, if U is the uniform distribution on [0,1], the CDF of $F^{-1}(U)$ is F:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \in \mathbb{R}, p(F^{-1}(U)\leq x) = p(U \leq F(x)) = F(x)&lt;/script&gt;</content><author><name>Your Sidebar Name</name></author><category term="lectures" /><summary type="html">Flow Models</summary></entry><entry><title type="html">Reading History</title><link href="http://localhost:4000/posts/2020/04/reading-history/" rel="alternate" type="text/html" title="Reading History" /><published>2020-04-02T00:00:00-07:00</published><updated>2020-04-02T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/reading-history</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/reading-history/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Writing my post on IRL and Gibbard’s theorem
+    &lt;ul&gt;
+      &lt;li&gt;Rosenfeld’s &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdf/10.2200/S00820ED1V01Y201712AIM036&quot;&gt;book&lt;/a&gt; on predicting Human Decision-Making. Other interesting books in the same collection:
+        &lt;ul&gt;
+          &lt;li&gt;An &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00091ED1V01Y200705AIM002&quot;&gt;introduction&lt;/a&gt; to multiagent systems&lt;/li&gt;
+          &lt;li&gt;An &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00108ED1V01Y200802AIM003&quot;&gt;introduction&lt;/a&gt; to game theory&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00355ED1V01Y201107AIM016&quot;&gt;book&lt;/a&gt; about cooperative games&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00372ED1V01Y201107AIM014&quot;&gt;book&lt;/a&gt; about preferences&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00559ED1V01Y201312AIM027&quot;&gt;book&lt;/a&gt; about aggregation&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00568ED1V01Y201402AIM028&quot;&gt;book&lt;/a&gt; about human-robot teaching&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00564ED1V01Y201311AIM024&quot;&gt;book&lt;/a&gt; about general games&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00765ED1V01Y201704AIM034&quot;&gt;book&lt;/a&gt; about multi-objective optimization&lt;/li&gt;
+          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00832ED1V01Y201802AIM037&quot;&gt;book&lt;/a&gt; about lifelong learning&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;april-3-2020&quot;&gt;April 3, 2020&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;By reading a post on EECS227’s Piazza about complementary slackness
+    &lt;ul&gt;
+      &lt;li&gt;Vazirani’s &lt;a href=&quot;http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf&quot;&gt;book&lt;/a&gt; on Algorithms.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;april-2-2020&quot;&gt;April 2, 2020&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;During the writing of my &lt;a href=&quot;/files/memo1.pdf&quot;&gt;memo&lt;/a&gt; “Rational Decision-Making for a Group of Individuals” for the &lt;a href=&quot;https://people.eecs.berkeley.edu/~russell/classes/cs294/s20/announcement.html&quot;&gt;Beneficial AI&lt;/a&gt; class
+    &lt;ul&gt;
+      &lt;li&gt;Jakob’s &lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/02/07/model-mis-specification-and-inverse-reinforcement-learning/&quot;&gt;post&lt;/a&gt; on misspecification and IRL
+        &lt;ul&gt;
+          &lt;li&gt;A more general view of mis-specification can be found in a previous &lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/01/10/latent-variables-and-model-mis-specification/#comments&quot;&gt;post&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;A classical &lt;a href=&quot;https://leon.bottou.org/publications/pdf/tr-2012-09-12.pdf&quot;&gt;article&lt;/a&gt; introducing causal inference and applying it to ad biding. Wondering how I can relate causal inference to mechanism design in the case of IRL.&lt;/li&gt;
+          &lt;li&gt;Evans’ &lt;a href=&quot;https://agentmodels.org/&quot;&gt;book&lt;/a&gt; about modelling agents&lt;/li&gt;
+          &lt;li&gt;The mentionned issue about the different action spaces leads me to Abbeel’s &lt;a href=&quot;https://openreview.net/pdf?id=B16dGcqlx&quot;&gt;article&lt;/a&gt;. Can be a good start for the Coordination IRL project.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Armstrong’s &lt;a href=&quot;https://www.lesswrong.com/posts/GfMGa9e79AfDMLj36/best-utility-normalisation-method-to-date&quot;&gt;post&lt;/a&gt; on normalizing utilities. LessWrong has a lot of useful resource to work on human-compatible AI.
+        &lt;ul&gt;
+          &lt;li&gt;He wrote an older similar &lt;a href=&quot;https://www.lesswrong.com/posts/hBJCMWELaW6MxinYW/intertheoretic-utility-comparison&quot;&gt;post&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="reading" /><category term="research" /><summary type="html">April 4, 2020 Writing my post on IRL and Gibbard’s theorem Rosenfeld’s book on predicting Human Decision-Making. Other interesting books in the same collection: An introduction to multiagent systems An introduction to game theory A book about cooperative games A book about preferences A book about aggregation A book about human-robot teaching A book about general games A book about multi-objective optimization A book about lifelong learning</summary></entry></feed>
