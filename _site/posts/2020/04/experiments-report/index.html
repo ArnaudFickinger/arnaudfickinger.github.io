@@ -37,7 +37,7 @@
 
 
 
-  <meta property="og:description" content="April 4, 2020">
+  <meta property="og:description" content="$\newcommand{\norm}[1]{\left\lVert#1\right\rVert}$">
 
 
 
@@ -263,7 +263,7 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Experiments Report">
-    <meta itemprop="description" content="April 4, 2020">
+    <meta itemprop="description" content="$\newcommand{\norm}[1]{\left\lVert#1\right\rVert}$">
     <meta itemprop="datePublished" content="April 04, 2020">
     
 
@@ -277,7 +277,7 @@
 
 
   
-	  1 minute read
+	  9 minute read
 	
 </p>
           
@@ -294,9 +294,191 @@
       
 
       <section class="page__content" itemprop="text">
-        <h1 id="april-4-2020">April 4, 2020</h1>
+        <p>$\newcommand{\norm}[1]{\left\lVert#1\right\rVert}$</p>
+
+<h1 id="april-10-2020">April 10, 2020</h1>
+
+<h2 id="multi-agent-rl-with-asymmetric-expertise">Multi-Agent RL with Asymmetric Expertise</h2>
+<p>As seen on the plot, my current VPG agent don’t get anymore signal after just one iteration:</p>
+
+<p><img src="/images/vpg.png" alt="" /></p>
+
+<p>I am adding a random action selection so that the policy does not get stuck directly. With an exploration rate of 
+0.5, the loss is not zero anymore but the gradient is also zero in average after one iteration.</p>
+
+<p><img src="/images/vpg_exploration_rate.png" alt="" /></p>
+
+<p>Let’s try without exploration rate but with an other optimizer: ADAM instead of SGD. Now the gradient don’t vanish but I have
+just noticed that I was minimizing instead of maximizing:</p>
+
+<p><img src="/images/vpg_adam.png" alt="" /></p>
+
+<p>Now with the right objective, the reward is continuously increasing:</p>
+
+<p><img src="/images/vpg_adam2.png" alt="" /></p>
+
+<p>Let’s try with more iterations. Since the training is very slow, I train on GPU and I save the logprob during the sample like in the pytorch reinforce <a href="https://github.com/pytorch/examples/blob/master/reinforcement_learning/reinforce.py">tuto</a> on github.
+Actually I got an error (Only Tensors created explicitly by the user (graph leaves) support the deepcopy protocol at the moment) and github don’t have ot because they 
+update the parameter a the end of each episode. What I can do is to sum the loss at sample time (against replay buffer attitude). The training is still very slow,
+maybe because we are sending action to the GPU during each timestep (!). Let’s compare to the tuto <a href="https://github.com/openai/spinningup/blob/master/spinup/examples/pytorch/pg_math/1_simple_pg.py">openai</a>:
+    * They use one hidden layer of size 32
+    * They don’t use cuda
+I forget about the monitor and I decrease the batch size to 50. It’s better but still slow, so I might choose an AWS. We see that the learning is not stable:</p>
+
+<p>I will try with v0 which has a lower max step and a batch of 100, but it’s still very slow.
+I sill have hope because the implementation in spinningup is actually very quick! Let’s find out what happen in my code tomorrow!</p>
+
+<h1 id="april-11-2020">April 11, 2020</h1>
+
+<h2 id="multi-agent-rl-with-asymmetric-expertise-1">Multi-Agent RL with Asymmetric Expertise</h2>
+<p>If I remember correctly, if we don;t put any random action the policy get stuck. I will add a video <a href="https://github.com/openai/gym/wiki/FAQ#how-do-i-export-the-run-to-a-video-file">monitoring</a>
+and display the <a href="https://about.gitlab.com/handbook/engineering/ux/technical-writing/markdown-guide/#display-local-videos-html5">video</a> here.</p>
+
+<h1 id="april-9-2020">April 9, 2020</h1>
+<h2 id="best-response-to-maxentirl-for-two-agents">Best response to MaxEntIRL for two agents</h2>
+<p>Firstly we need to think about an environment where the regularizer can easily change the trajectory of $H_2$</p>
+
+<h2 id="multi-agent-rl-with-asymmetric-expertise-2">Multi-Agent RL with Asymmetric Expertise</h2>
+<p>Let’s create a easier game to solve, one agent at a time. When the environment robot go through the half part of the player, 
+a ball is created. The player has to catch it before the robot go to the other half. The two player can’t go to the other half.
+Do we assume that they see them? First no then yeah.</p>
+
+<p>Since we want the robot to act, we need to create the game for the 3 players. But first let’s see how our algorithm perform 
+on a simple task of catching a ball set randomly. Let’s say the game stop at a certain time step. And let’s try to have
+a easy state space, like the (global) position of the player, and the position of the ball (-1,-1) if there is no ball.</p>
+
+<p>Firslty let’s test our algorithm on a gym environment.</p>
 
 <h2 id="best-response-to-maxentirl-for-a-single-agent">Best response to MaxEntIRL for a single agent</h2>
+<p>Let’s try the sparse regularizer with <a href="https://www.cvxpy.org/examples/machine_learning/lasso_regression.html">CVXPY</a></p>
+
+<h1 id="april-8-2020">April 8, 2020</h1>
+
+<h2 id="multi-agent-rl-with-asymmetric-expertise-3">Multi-Agent RL with Asymmetric Expertise</h2>
+<ul>
+  <li>Let’s think about an environment where we can train H1 and H2 separetely and the robot can help them but without joint training at first. The robot can make 
+their task easier, and see which one the robot follow at the end. The problem is how the robot can learn to help and not doing the task, he must have a restricted 
+action space that prevent him to get reward but can make reward of one human faster. Also the problem is the credit assignment when the robot is learning and the humans are
+already getting reward. The human should also be trained jointly and their reward should depend on robot action. So we should train both human separetely in a 2 players
+environment first. Or the robot needs to be in a certain position to enable H1 or H2 to do what they were train to do in a single player mode (put the ground in a different color).</li>
+  <li>First I need to train one agent and see what he can do. So let’s continue OpenAI tutorial. I have implemented the vanilla PG and will test it tomorrow.</li>
+</ul>
+
+<h2 id="cooperation-learning">Cooperation Learning</h2>
+<p>To implement my ideas, let’s build on <a href="https://github.com/rlworkgroup/garage">garage</a>.</p>
+
+<h1 id="april-7-2020">April 7, 2020</h1>
+<h2 id="best-response-to-maxentirl-for-a-single-agent-1">Best response to MaxEntIRL for a single agent</h2>
+<ul>
+  <li>To gain in productivity, I have made my code more modular. Here is the results discussed on 4/5, firstly for the LP and $\lambda=0$ as a sanity check:
+ Objective       | $\Phi A\rho$         <br />
+ — |—
+ LP uniform (gives b)   | $[2.41210546 2.41210546 0.11599564]$
+ LP start middle    | $[2.07387119 2.07387119 0.3910971 ]$
+ QP $\lambda=0$     | $[2.07387037 2.07387037 0.39109759]$</li>
+</ul>
+
+<p>We see that the solution of the QP without regularizer approximately gives the same as the solution of the LP with a non-uniform start distribution.
+We notice that even if the trajectories are symmetric, the rewards are not. This is because the initial $\theta$ is the same but is not necessarily symmetric!</p>
+
+<p><img src="/images/san_check.png" alt="" /></p>
+
+<p>Now let’s try with strictly positive value for $\lambda$:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Objective</th>
+      <th>$\Phi A\rho$</th>
+      <th>$\norm{ A\rho - b }_2$</th>
+      <th>$\norm{ \Phi(A\rho - b) }_2$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LP</td>
+      <td>$[2.41210546 2.41210546 0.11599564]$</td>
+      <td>$0$</td>
+      <td>$0$</td>
+    </tr>
+    <tr>
+      <td>QP</td>
+      <td>$[[2.07387114] [2.07387114] [0.39109711]]$</td>
+      <td>$1.4419671500227427$</td>
+      <td>$0.551802253219664$</td>
+    </tr>
+    <tr>
+      <td>QP</td>
+      <td>$[[2.07387106][2.07387106][0.39109735]]$</td>
+      <td>$1.4419657250082745$</td>
+      <td>$0.5518024830705811$</td>
+    </tr>
+    <tr>
+      <td>QP</td>
+      <td>$[[2.07465583][2.07465583][0.39295618]]$</td>
+      <td>$1.4324016870598635$</td>
+      <td>$0.5517713795525508$</td>
+    </tr>
+    <tr>
+      <td>QP</td>
+      <td>$[[2.07684072][2.07684072][0.39813496]]$</td>
+      <td>$1.406848235873857$</td>
+      <td>$0.5517313583602333$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/images/sym_env.png" alt="" /></p>
+
+<p>We see that the occupancy measure are already symmetric even if the trajectory is not. We need to put another constraint on the occupancy measure.
+To assess that, let’s plot the occupancy measure for each time step with lambda = 1000:</p>
+
+<p><img src="/images/occupancy_per_time.png" alt="" /></p>
+
+<p>Next time let’s try on the asymmetric environment, and the initial environment where we saw a difference, for that we need to add 2 column and make the start closer to the left.</p>
+
+<p>Actually let’s try with an asymmetric start, it will force the non-regularized QP to have an asymmetric occupancy measure.
+We see that the solution is indeed modified but we still don’t have the behavior from the paper:</p>
+
+<p>Next time let’s try a sparse regularization at each timestep to force the occupancy to choose only one way at a time.</p>
+
+<h1 id="april-5-2020">April 5, 2020</h1>
+
+<h2 id="best-response-to-maxentirl-for-a-single-agent-2">Best response to MaxEntIRL for a single agent</h2>
+<ul>
+  <li>
+    <p>Let’s validate yesterday’s hypothesis. To do that, let’s write my optimization problem:</p>
+
+    <script type="math/tex; mode=display">\max_{\rho} r^T\rho - \lambda\norm{ \Phi(A\rho - b) }_2^2</script>
+
+    <p>where $\Phi$ is the feature matrix sending $\mathbb{R}^S$ into $\mathbb{R}^K$. Here $S=110$ and $K=3$. So of course 
+  regularizing in $\mathbb{R}^S$ and $\mathbb{R}^K$ is not the same. My intuition is that $A\rho$ and $b$ have more chance to
+  be closer in term of Euclidian distance in a space of smaller dimension (we can upperbound by the operator norm, 
+  can we relate it to the dimension?) thus the regularization would be stronger
+  if we don’t send $A\rho$ and $b$ into $\mathbb{R}^K$. Recall that for every value of $\lambda$, $b$ is fixed. Here is how I will 
+  process: For every value of $\lambda$, I will report $\Phi b$, $\Phi A\rho$, $\Phi(A\rho - b)$, $\norm{ \Phi(A\rho - b) }_2^2$ and 
+  $\norm{ A\rho - b }_2^2$ on a table and I will plot $A\rho$. But first let’s cut the part of the environment without importance to 
+  save computation time. Also I have just noticed that the reward are symmetric in the original paper! I create two environments:</p>
+    <ul>
+      <li>A symmetric environment of size (7,5)</li>
+      <li>An asymmetric environment of size (8,5)
+  Let’s plot the expert trajectory and the expected state-visitation count for the symmetric environment. The first strange thing is 
+  that computing $Ax$ does not give me the same thing as computing the SVF from $x$ (occupancy measure):</li>
+    </ul>
+
+    <p><img src="/images/result_3.png" alt="" /></p>
+
+    <p>Let’s inspect $A$ again. Ok nevermind, I just mixed the horizon and the height, here is the corrected plot:</p>
+
+    <p><img src="/images/result_4.png" alt="" /></p>
+
+    <p>And $b$ is $[2.41210546 2.41210546 0.11599564]$</p>
+  </li>
+</ul>
+
+<h1 id="april-4-2020">April 4, 2020</h1>
+
+<h2 id="best-response-to-maxentirl-for-a-single-agent-3">Best response to MaxEntIRL for a single agent</h2>
 <ul>
   <li>
     <p>Let me recall the objective: I want to get the same trajectory as in <a href="https://arxiv.org/pdf/1606.03137.pdf">CIRL</a>:</p>
@@ -392,7 +574,7 @@
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/" class="pagination--pager" title="Deep Unsupervised Learning
+      <a href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" class="pagination--pager" title="Coordination Learning
 ">Previous</a>
     
     
@@ -468,7 +650,7 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/posts/2020/04/goals/" rel="permalink">Goals
+        <a href="http://localhost:4000/posts/2020/04/goals/" rel="permalink">Daily Goals
 </a>
       
     </h2>
@@ -484,11 +666,53 @@
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-04T00:00:00-07:00">April 04, 2020</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-11T00:00:00-07:00">April 11, 2020</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="research-goals-for-my-phd">Research Goals for my PhD</h1>
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/04/optimal-adaptive-control/" rel="permalink">Optimal and Adaptive Control
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-10T00:00:00-07:00">April 10, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><h1 id="control">Control</h1>
 
 </p>
     
@@ -511,7 +735,7 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" rel="permalink">Gibbard’s Theorem and Inverse Reinforcement Learning
+        <a href="http://localhost:4000/posts/2020/04/numerical-optimization/" rel="permalink">Numerical Optimization
 </a>
       
     </h2>
@@ -521,60 +745,20 @@
 
 
   
-	  1 minute read
+	  less than 1 minute read
 	
 </p>
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-04T00:00:00-07:00">April 04, 2020</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-06T00:00:00-07:00">April 06, 2020</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="abstract">Abstract</h1>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-        
-          
-
-
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/" rel="permalink">Deep Unsupervised Learning
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-03T00:00:00-07:00">April 03, 2020</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="flow-models">Flow Models</h1>
+    <p class="archive__item-excerpt" itemprop="description"><ul>
+  <li>The book don’t handle discrete optimization. In RL, we want to solve for a policy. If we create |S| optimization problems
+and solve for a stochastic policy, then we have a continuous space. But we can’t separate each state.</li>
+</ul>
 
 </p>
     

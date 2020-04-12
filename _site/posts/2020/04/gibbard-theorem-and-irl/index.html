@@ -277,7 +277,7 @@
 
 
   
-	  1 minute read
+	  10 minute read
 	
 </p>
           
@@ -296,10 +296,31 @@
       <section class="page__content" itemprop="text">
         <h1 id="abstract">Abstract</h1>
 
+<blockquote>
+  <p>Can we call it IRL for social robots? Or artificial social choice theory, or social choice theory for robots, then 2 parts: strategy-proofness of IRL, fairness of multi agent systems (a paper already talk avbout the fact that ressouce are usually given to the most performant)</p>
+</blockquote>
+
 <p>In this post I will show that when an IRL system aggregates demonstrations from multiple humans, the best response trajectory for a self-interested human
 is not the expert trajectory.</p>
 
 <h1 id="motivation">Motivation</h1>
+<ul>
+  <li>
+    <p>Most machine Learning algorithm are built with the assumption that the distribution of the data won’t change
+between training and execution. Recently efficient meta learning have been built to enable an efficient work on out-of-distibution
+data, but the tasks remain similar. When we think about humans, it’s hard to think about any stationary distribution. Each human has
+his unique preferences, beliefs and decision-maker mechanism, and each human is repeatedly evolving. Moreover human are decision-maker 
+and will change their behavior in presence of a robot. It’s necessary to think about multi-agent methods when
+treating human data:</p>
+  </li>
+  <li>
+    <p>Rethink MA(I)RL for social… Firstly IRL is manipulable, then MARL no fair. Human Compatible IRL/RL.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Look at literature about social robots</p>
+</blockquote>
 
 <p>Social choice theory is the branch of Economics modeling and analyzing collective decision-making
 from the perspective of aggregating individual preferences. For example it is concerned with the 
@@ -319,7 +340,138 @@ choice theory discussed above, the question we want to answer is: <em>if an IRL 
 preferences of two individuals by aggregating their two trajectories, does the expert trajectory remain the best response
 of each individual?</em></p>
 
+<h1 id="meeting-with-tom-10-11">Meeting with tom (10-11)</h1>
+
+<h2 id="manifesto-for-multi-agent-inverse-reinforcement-learning-why-should-we-avoid-inverse-reinforcement-learning-to-understand-human-values">Manifesto for Multi-Agent Inverse Reinforcement Learning: Why should we avoid Inverse Reinforcement Learning to understand human values?</h2>
+
+<ul>
+  <li>
+    <p>Game: how does the payoffs and competition change when the robot is present? How does it perturbe the behavior of both humans? Theory+Experiment</p>
+  </li>
+  <li>
+    <p>Besides alleviating reward engineering, a longer term and more conceptual purpose of Inverse Reinforcement Learning 
+is to learn about human values. The idea is that it’s hard for a human to quantify their values and preferences, and IRL propose to 
+learn this by itself by observing their behaviors. Yet a possible loophole is that it assumes that the observed behavior truthfully express 
+the values and preferences. Thinking about manipulation voting [OTHER EXAMLE], it appear as a big assumption.</p>
+  </li>
+  <li>
+    <p>Utilitarism states that the best action is the one that create the greatest happiness
+in the greatest number of <a href="https://arxiv.org/pdf/2001.09768v1.pdf">people</a>. Thus a utilitarian robot aacting
+for a group of people would maximize the sum of their utilities. At first sight it sounds
+like an appealing objective to motivates fair actions. Yet we can think about asymetric level of expertise.
+aims to maximize global utility and appears as a fair choice. But if one human is less good as expresing 
+himself, then the robot would optimize for the other [BE MORE CLEAR]</p>
+  </li>
+  <li>
+    <p>Let’s think of single-agent Inverse Reinforcement Learning. The technical purpose of IRL is that
+engineering reward is hard and observing an expert to deduce a reward or a policy is easier in some cases. 
+A famous example is the success of training autonomous helicopter threw <a href="http://www.robotics.stanford.edu/~ang/papers/ijrr10-HelicopterAerobatics.pdf">apprenticeship learning</a>.
+The conceptual purpose of IRL is that for less obvious tasks, it’s hard for a human to define what he wants
+in terms of reward function. This problem is also studied in Economics since the problem is that human have 
+hard time to externalize their preference. So instead of asking them what they want in terms of utility function or
+reward function, we observe them and deduce what they want. The problem of observing a human, that is not present 
+when observing an helicopter, is that his behavior does not only reflect his internal preference but also the
+norms of the world he is living in. When we study a driver in isolation, we might think that the sense of the road is part of
+its preference while he is just following norms (NOT A GOOD EXAMPLE, BETTER ONE?). In the contrary, when studying several humans, we might
+understand that driving in the road is a game with a dual equilibrium due to a coordination problem, and 
+the humans are indifferent to the sense of the road provided that they reach one of the two equilibria. 
+Studying humans inside their community will enable to understand in what kind of equilibria they are in, and distinguish
+their true preferences from the external influence.</p>
+  </li>
+  <li>
+    <p>Single Agent IRL</p>
+  </li>
+  <li>
+    <p>Let’s think about a system that would use IRL on trajectories from multiple humans. Is it strategyproof? If now we see the 
+system as part of the game, can we see emerge behaviors that would incentivize the humans to act truthfully? We can see second bid auction
+as</p>
+  </li>
+  <li>
+    <p>Let’s think about a robot inside a community of humans that would have to maximize a the utilitarian aggregation of reward,
+would he end up helping the least advantaged? Maximin? Can we think of a way to understand the signal?</p>
+  </li>
+  <li>
+    <p>An implementation of Multi Agent IRL</p>
+  </li>
+  <li>
+    <p>I had a very exiting meeting with Tom. He introduced me to the problem of norm. The question is does we want AI to be purely
+descriptive or does we want AI to have a part of norms. Putting a norm in the AI has always a risk to make it biased. The question 
+is is there a way to learn the norm? Paradoxaly, can we use a descriptive or positive approach to learn the norm? This sounds impossible
+for a human because the norm is the description of all the global and he would have to extract himself to learn the norm. On a other side, we can look
+back at the time and see that what they defined as a norm in the middle age is define as saddistic and marginal now. The only way to define a norm
+is to have a system that extract itself of the world and learn the norm by observing the behavior. 
+We can define a norm as what enable people to reach a Paretto-efficient equilibria rather than a Nash equilibria, but we still need to identify the game.
+There is some methos in multi=agent inverse reinfordemtn learning that</p>
+  </li>
+  <li>
+    <p>We need to distinguish two types of norm: norms emerging due to the presence of coordination problem, and norm
+emerging due to the presence of Pareto efficient equilibria that are not Nash equilibria. For the former case, we can think 
+of languages or the sense of the road. Since in coordianation games, the Nash equilibria is condiionned by coordinated behaviors, in this case acceptance norms are reached 
+naturally by self-interested agents. In the later case, we can think (look at mechanism design litterature).</p>
+  </li>
+  <li>
+    <p>Problem of self awareness: do we prefer to put water in India or</p>
+  </li>
+  <li>
+    <p>Mechanism Design: What enable Vickrey to defeat Gibbard?</p>
+  </li>
+  <li>
+    <p>Strategy-Proofness of IRL: Does Car should have norms?</p>
+  </li>
+  <li>
+    <p>Discover norm threw multi-agent IRL</p>
+  </li>
+  <li>
+    <p>Assistance Game and Mechanism Design: discovering what enable Vickrey to alleviate Gibbard. They say constraint of utilities,
+can we see that as norms? Norms make people think</p>
+  </li>
+</ul>
+
+<h1 id="theory">Theory</h1>
+
+<p>Our goal is to demonstrate that kind of result:</p>
+<blockquote>
+  <p>The best response trajectory to a IRL system depend on the other human’s trajectories. Thus an IRL mechanism is not 
+strategy-proof.</p>
+</blockquote>
+
+<p>A way to prove it would be to reduce IRL to a voting mechanism, by first starting with a MAB. Another way would be to generalize Gibbard to 
+utilities and then reduce IRL to cardinal utilities on features. Or we can look for results in mechanism design and see IRL as a game.</p>
+
+<p>Firstly let’s formalize inverse reinforcement learning in the lense</p>
+
 <h1 id="experiment">Experiment</h1>
+
+<h2 id="practical-manipulation-of-inverse-reinforcement-learning">Practical Manipulation of Inverse Reinforcement Learning</h2>
+
+<p>But in any case, it’s useful to understand what MaxEnt IRL do in the case where features are available: given a trajectory $(s_1,a_1,…,a_{T-1},s_T)$, 
+the only thing that the IRL system keep is the empirical feature count $\sum_{t=1}^{T} \phi(\tilde{s}_t)$ and the empirical initial state distribution $\rho_0$. The 
+objective is:</p>
+
+<script type="math/tex; mode=display">\omega^* = \max_{\omega} P(\tilde{\tau}|\omega,\rho_0) \\
+P(\tilde{\tau}|\omega,\rho_0) = \frac{e^{\sum_{t=1}^{T}\phi(s_t)^T\omega}}{Z(\omega, \rho_0)} \\
+Z(\omega, \rho_0) = \sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}</script>
+
+<p>Assuming we have two independent trajectories, we can write the log-likelihood as:</p>
+
+<script type="math/tex; mode=display">L(\omega) = \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t)^T\omega - 2 \log \sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}</script>
+
+<p>The Log-Sum-Exp term is convex, so our objective is convex (we maximize a linear and a concave function). Let’s compute the gradient:</p>
+
+<script type="math/tex; mode=display">\nabla_{\omega} L(\omega) = \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \frac{\sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega} \sum_{t=1}^{T}\phi(s^{\tau}_t)}{\sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}} \\
+= \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \sum_{\tau, s_0 \sim \rho_0} P(\tau|\omega) \sum_{t=1}^{T}\phi(s^{\tau}_t) \\
+= \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \sum_{s} P(s|\omega, \rho_0)\phi(s)</script>
+
+<p>Where the distribution in the last term is the state visitation frequency, efficiently computable by dynamic programming:</p>
+
+<script type="math/tex; mode=display">P(s|\omega, \rho_0) = \sum_{t=1}^{T}P^{\pi^*(\omega)}(s_t=s|s_0 \sim \rho_0)</script>
+
+<p>We see that the optimal solution is $\omega$ such that the expected feature count under $\omega$ matches 
+the empirical feature count of the observed trajectories. Thus a human can manipulate MaxEntIRL by producing 
+a trajectory such that the empirical feature count of the observed trajectories matches his own empirical feature count. 
+The best response of $H_2$ to $H_1$ and the MaxEntIRL system is then:</p>
+
+<script type="math/tex; mode=display">\tau^*_2(\tau_1) = \min_{\tau_2} \norm{\phi(\tau_2) - (2\mathbb{E}_{\tau \sim \pi^*(w_2), s_0 \sim \rho_0}(\phi(\tau) )- \phi(\tau_1) )</script>
 
 <h1 id="related-work">Related Work</h1>
 
@@ -456,7 +608,7 @@ the preferences of a single human is not the expert trajectory, but rather invol
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/posts/2020/04/goals/" rel="permalink">Goals
+        <a href="http://localhost:4000/posts/2020/04/goals/" rel="permalink">Daily Goals
 </a>
       
     </h2>
@@ -472,11 +624,53 @@ the preferences of a single human is not the expert trajectory, but rather invol
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-04T00:00:00-07:00">April 04, 2020</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-11T00:00:00-07:00">April 11, 2020</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="research-goals-for-my-phd">Research Goals for my PhD</h1>
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/04/optimal-adaptive-control/" rel="permalink">Optimal and Adaptive Control
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-10T00:00:00-07:00">April 10, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><h1 id="control">Control</h1>
 
 </p>
     
@@ -499,7 +693,7 @@ the preferences of a single human is not the expert trajectory, but rather invol
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/posts/2020/04/experiments-report/" rel="permalink">Experiments Report
+        <a href="http://localhost:4000/posts/2020/04/numerical-optimization/" rel="permalink">Numerical Optimization
 </a>
       
     </h2>
@@ -509,60 +703,20 @@ the preferences of a single human is not the expert trajectory, but rather invol
 
 
   
-	  1 minute read
+	  less than 1 minute read
 	
 </p>
     
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-04T00:00:00-07:00">April 04, 2020</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-06T00:00:00-07:00">April 06, 2020</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="april-4-2020">April 4, 2020</h1>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-        
-          
-
-
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/" rel="permalink">Deep Unsupervised Learning
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-03T00:00:00-07:00">April 03, 2020</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="flow-models">Flow Models</h1>
+    <p class="archive__item-excerpt" itemprop="description"><ul>
+  <li>The book don’t handle discrete optimization. In RL, we want to solve for a policy. If we create |S| optimization problems
+and solve for a stochastic policy, then we have a continuous space. But we can’t separate each state.</li>
+</ul>
 
 </p>
     

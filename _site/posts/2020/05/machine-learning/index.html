@@ -19,7 +19,7 @@
 
 
 
-<title>Daily Progress - Arnaud Fickinger</title>
+<title>Machine Learning - Arnaud Fickinger</title>
 
 
 
@@ -29,15 +29,15 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Arnaud Fickinger">
-<meta property="og:title" content="Daily Progress">
+<meta property="og:title" content="Machine Learning">
 
 
-  <link rel="canonical" href="http://localhost:4000/pposts/2020/04/daily-progress/">
-  <meta property="og:url" content="http://localhost:4000/pposts/2020/04/daily-progress/">
+  <link rel="canonical" href="http://localhost:4000/posts/2020/05/machine-learning/">
+  <meta property="og:url" content="http://localhost:4000/posts/2020/05/machine-learning/">
 
 
 
-  <meta property="og:description" content="Laplace Approximation">
+  <meta property="og:description" content="Classification">
 
 
 
@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2020-04-03T00:00:00-07:00">
+  <meta property="article:published_time" content="2020-04-05T00:00:00-07:00">
 
 
 
@@ -262,15 +262,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Daily Progress">
-    <meta itemprop="description" content="Laplace Approximation">
-    <meta itemprop="datePublished" content="April 03, 2020">
+    <meta itemprop="headline" content="Machine Learning">
+    <meta itemprop="description" content="Classification">
+    <meta itemprop="datePublished" content="April 05, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Daily Progress
+          <h1 class="page__title" itemprop="headline">Machine Learning
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -284,7 +284,7 @@
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-03T00:00:00-07:00">April 03, 2020</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-05T00:00:00-07:00">April 05, 2020</time></p>
         
         
              
@@ -294,20 +294,23 @@
       
 
       <section class="page__content" itemprop="text">
-        <h1 id="laplace-approximation">Laplace Approximation</h1>
+        <h1 id="classification">Classification</h1>
 
-<p>To approximate an integral, we can start by a second-order Taylor expansion:</p>
-
-<p>$$f(x) \sim f(x^<em>) + \nabla f(x^</em>)^T(x-x^*) + \frac{1}{2}=</p>
-
-<p>We end up with Gaussian integrals</p>
-
-<p>Legibility and Predictability are different because one normalize over trajectories and the other normalize other goals
-so intuitively in one case we think about the other trajectories and in the other case we think about the other goals</p>
-
+<p>Every binary classifiers can be characterized by the shape of their <em>decision boundary</em>. Let’s talk about two mainly used classifier:</p>
 <ul>
-  <li>To optimize the legibility, think bout the Newton integral</li>
+  <li>The decision boundary of the *linear classifier8 is the hyperplane that best separate the data.</li>
+  <li>The decision boundary of the <em>nearest-neighbour classifier</em> is the Voronoi diagram separating only points from two different classes</li>
+  <li>The decision boundary of the K-nearest-neighbours classifier becomes smoother as K increases. Since the algorithm use majority voting, K must be odd.</li>
 </ul>
+
+<blockquote>
+  <p>How to compute the decision boundary of the K-nearest classifier?</p>
+</blockquote>
+
+<p>We <em>validate</em> a classifier by computing the <em>test set error</em>. A method that has low training error but high test error is <em>overfitting</em> the training data. If
+it has low test set error, it <em>generalizes</em> well.</p>
+
+<p><em>Last update: L1 1h</em></p>
 
         
       </section>
@@ -332,7 +335,7 @@ so intuitively in one case we think about the other trajectories and in the othe
     
       
       
-      <a href="http://localhost:4000/tags/#self-development" class="page__taxonomy-item" rel="tag">self-development</a>
+      <a href="http://localhost:4000/tags/#lectures" class="page__taxonomy-item" rel="tag">lectures</a>
     
     </span>
   </p>
@@ -349,11 +352,11 @@ so intuitively in one case we think about the other trajectories and in the othe
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2020/05/machine-learning/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2020/05/machine-learning/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2020/05/machine-learning/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -361,11 +364,11 @@ so intuitively in one case we think about the other trajectories and in the othe
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/posts/2020/04/beneficial-ai/" class="pagination--pager" title="Beneficial AI
+      <a href="http://localhost:4000/posts/2020/04/goals/" class="pagination--pager" title="Goals
 ">Previous</a>
     
     
-      <a href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" class="pagination--pager" title="Coordination Learning
+      <a href="http://localhost:4000/posts/2020/04/papers_reading/" class="pagination--pager" title="Papers Reading
 ">Next</a>
     
   </nav>

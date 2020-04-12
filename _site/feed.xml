@@ -1,6 +1,387 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T22:04:31-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Arnaud Fickinger</title><subtitle>PhD Student at UC Berkeley</subtitle><author><name>Your Sidebar Name</name></author><entry><title type="html">Future Blog Post</title><link href="http://localhost:4000/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00-08:00</published><updated>2199-01-01T00:00:00-08:00</updated><id>http://localhost:4000/posts/2012/08/future-post</id><content type="html" xml:base="http://localhost:4000/posts/2012/08/blog-post-4/">&lt;p&gt;This post will show up by default. To disable scheduling of future posts, edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.yml&lt;/code&gt; and set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;future: false&lt;/code&gt;.&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html">This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.</summary></entry><entry><title type="html">Experiments Report</title><link href="http://localhost:4000/posts/2020/04/experiments-report/" rel="alternate" type="text/html" title="Experiments Report" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/experiments-report</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/experiments-report/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-11T22:46:56-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Arnaud Fickinger</title><subtitle>PhD Student at UC Berkeley</subtitle><author><name>Your Sidebar Name</name></author><entry><title type="html">Future Blog Post</title><link href="http://localhost:4000/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00-08:00</published><updated>2199-01-01T00:00:00-08:00</updated><id>http://localhost:4000/posts/2012/08/future-post</id><content type="html" xml:base="http://localhost:4000/posts/2012/08/blog-post-4/">&lt;p&gt;This post will show up by default. To disable scheduling of future posts, edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.yml&lt;/code&gt; and set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;future: false&lt;/code&gt;.&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html">This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.</summary></entry><entry><title type="html">Daily Goals</title><link href="http://localhost:4000/posts/2020/04/goals/" rel="alternate" type="text/html" title="Daily Goals" /><published>2020-04-11T00:00:00-07:00</published><updated>2020-04-11T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/daily-goals</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/goals/"></content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="self-development" /><summary type="html"></summary></entry><entry><title type="html">Optimal and Adaptive Control</title><link href="http://localhost:4000/posts/2020/04/optimal-adaptive-control/" rel="alternate" type="text/html" title="Optimal and Adaptive Control" /><published>2020-04-10T00:00:00-07:00</published><updated>2020-04-10T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/optimal-adaptive-control</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/optimal-adaptive-control/">&lt;h1 id=&quot;control&quot;&gt;Control&lt;/h1&gt;
+
+&lt;p&gt;In the real world we can’t usually observe the full state of the object we want to control. Thus we assume that a map between state and observation
+is given:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;h: S \times A \rightarrow O&lt;/script&gt;
+
+&lt;p&gt;In control theory the notations for the corresponding variable are $x$, $u$ and $y$.&lt;/p&gt;
+
+&lt;p&gt;What happen is that many states can be mapped to the same observation. In RL we have seen that
+in general there is no policy on observation that reach the optimal behavior.&lt;/p&gt;
+
+&lt;p&gt;It’s important to think about the state and not just the observation because the dynamics
+is given for the state threw a vector valued differential equation:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f: S \times A \rightarrow \mathbb{R}^{dim(S)} \\
+f(x,u) = \.{x}&lt;/script&gt;</content><author><name>Your Sidebar Name</name></author><category term="project" /><category term="lectures" /><summary type="html">Control</summary></entry><entry><title type="html">Numerical Optimization</title><link href="http://localhost:4000/posts/2020/04/numerical-optimization/" rel="alternate" type="text/html" title="Numerical Optimization" /><published>2020-04-06T00:00:00-07:00</published><updated>2020-04-06T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/numerical-optimization</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/numerical-optimization/">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The book don’t handle discrete optimization. In RL, we want to solve for a policy. If we create |S| optimization problems
+and solve for a stochastic policy, then we have a continuous space. But we can’t separate each state.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The difference between strict local minima and isolated minima is not clear to me&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="reading" /><category term="research" /><summary type="html">The book don’t handle discrete optimization. In RL, we want to solve for a policy. If we create |S| optimization problems and solve for a stochastic policy, then we have a continuous space. But we can’t separate each state.</summary></entry><entry><title type="html">Machine Learning</title><link href="http://localhost:4000/posts/2020/05/machine-learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2020-04-05T00:00:00-07:00</published><updated>2020-04-05T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/05/machine-learning</id><content type="html" xml:base="http://localhost:4000/posts/2020/05/machine-learning/">&lt;h1 id=&quot;classification&quot;&gt;Classification&lt;/h1&gt;
+
+&lt;p&gt;Every binary classifiers can be characterized by the shape of their &lt;em&gt;decision boundary&lt;/em&gt;. Let’s talk about two mainly used classifier:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The decision boundary of the *linear classifier8 is the hyperplane that best separate the data.&lt;/li&gt;
+  &lt;li&gt;The decision boundary of the &lt;em&gt;nearest-neighbour classifier&lt;/em&gt; is the Voronoi diagram separating only points from two different classes&lt;/li&gt;
+  &lt;li&gt;The decision boundary of the K-nearest-neighbours classifier becomes smoother as K increases. Since the algorithm use majority voting, K must be odd.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How to compute the decision boundary of the K-nearest classifier?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We &lt;em&gt;validate&lt;/em&gt; a classifier by computing the &lt;em&gt;test set error&lt;/em&gt;. A method that has low training error but high test error is &lt;em&gt;overfitting&lt;/em&gt; the training data. If
+it has low test set error, it &lt;em&gt;generalizes&lt;/em&gt; well.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Last update: L1 1h&lt;/em&gt;&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="lectures" /><summary type="html">Classification</summary></entry><entry><title type="html">Papers Reading</title><link href="http://localhost:4000/posts/2020/04/papers_reading/" rel="alternate" type="text/html" title="Papers Reading" /><published>2020-04-05T00:00:00-07:00</published><updated>2020-04-05T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/papers-reading</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/papers_reading/">&lt;h1 id=&quot;the-gibbardsatterthwaite-theorem-a-simple-proof-benoit-2000&quot;&gt;The Gibbard–Satterthwaite theorem: a simple proof (Benoit 2000)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Proof in the case of strict linear preference ordering&lt;/li&gt;
+  &lt;li&gt;The social choice function selects one alternative&lt;/li&gt;
+  &lt;li&gt;The theorem shown states that any unanimous and strategyproof SCF is a dictatorship&lt;/li&gt;
+  &lt;li&gt;The intuition behind this proof is that to prevent someone to hide his preferences,
+at least one must actually decide&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The proof assume that the alternative chosen by the dictator has been chosen by everyone before him. 
+Is it a restricted case? We just say that there is one dictator, we don’t say that everyone can be a dictator!
+We show that the pivotal agent for one alternative is actually the pivotal agent for any alternative and thus a dictator&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Let’s think of a multi-armed bandit setting&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;legibility-and-predictability-of-robot-motion-dragan-2013&quot;&gt;Legibility and Predictability of Robot Motion (Dragan 2013)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Legibility (intent-expressive) and predictability (intent-predictive) are different in Motion Planning:
+    &lt;ul&gt;
+      &lt;li&gt;Predictable motion: expert trajectory from the goal (what trajectory the human expect if he knows the goal, in this paper it’s the expert)&lt;/li&gt;
+      &lt;li&gt;Legible motion: enable to infer goal from trajectory (what trajectory will make the human understand the goal)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We should get the same trajectories as the best response in CIRL since it’s also from trajectory to goal. Here 
+I think the difference is that we infer the goal online, and the robot want us to infer goal as soon as possible.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For the legible trajectory, they model human’s goal inference with Bayesian inference on every portion of trajectory $S \rightarrow Q$:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;G^* = \max_{\Xi_{S\rightarrow Q}} P(G|\Xi_{S\rightarrow Q}) \\
+      P(G|\Xi_{S\rightarrow Q}) \propto P(\Xi_{S\rightarrow Q}|G)P(G) \\
+      P(\Xi_{S\rightarrow Q}|G) = \frac{\int P(\Xi_{S\rightarrow Q \rightarrow G})}{\int P(\Xi_{S\rightarrow G})}&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I guess the marginal proba of a trajectory is a gaussian centered on the straight line&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;As done in the MEIRL paper, they separate trajectories:
+  &lt;script type=&quot;math/tex&quot;&gt;\int P(\Xi_{S\rightarrow Q \rightarrow G}) = P(\Xi_{S\rightarrow Q})\int P(\Xi_{ Q \rightarrow G})&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My concern is that it enables a quasioptimal trajectory to oscillate&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They use the principle of maximum entropy as a prior for $P(\Xi)$ and use Laplace’s method and approximate $C$ as a quadratic (Hessian constant) to approximate the integral.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Read about Laplace’s method, Laplace prior and the paper of Levine of Laplace IRL&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;third-person-imitation-learning-il-abbeel-2017&quot;&gt;Third Person Imitation Learning (IL) (Abbeel 2017)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My idea of Coordination IL is to transform a human action set into a joint human-robot action set. Here, before
+reading, it sounds like it transforms human into robot so it seems very pertinent to my project. I am wondering 
+how do they train this transformation, and what is the scope of the trained model, ie can it generalize to other task? 
+Or does the human has different similar intention around the same task? Furthermore by reading the abstract they talk about
+domain confusion, I like the word and I am pretty exited to read about that.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Domain Confusion was introduced in this &lt;a href=&quot;https://arxiv.org/abs/1412.3474&quot;&gt;paper&lt;/a&gt; as a method to improve generalization
+on new image dataset&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;They include a loss that endure a domain invariant representation, so I guess they need example from
+different dataset, so isn’t it the same as learning a hierarchical representation or meta learning?&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;They adapt GAIL to the third person. The difficulty is that matching raw features is not possible here and they alleviate this 
+with &lt;a href=&quot;http://proceedings.mlr.press/v37/ganin15.pdf&quot;&gt;technique&lt;/a&gt; in domain adaptation.
+http://proceedings.mlr.press/v37/ganin15.pdf&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;This paper add the domain adaptation idea to GAIl, we need to come up with another idea. What about coordination. What make coordination different than just third? The reward is different, hey can be multiple optimal policies. Even with the same action space it’s challenging.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Their reward is only a function of s, which make the domain adaptation easier since we can keep the same reward. The robot still need to see what action leads him to
+what states.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In our case it’s difficult to imagine the robot trying to see what joint action leads to what space in the presence of a human&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They still train a generator to trick the discriminator, but since the observations come from 2 different environment,
+they add a pre-discriminator that extract features from the observation. The generator has to make sure that the mutual information
+of the label and the output of the pre-discriminator is 0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Then what’s the purpose of the other discriminator? Cause if the pre-discriminator remove the info about the domain… Actually there is 
+two variable, the domain and the class, and the pre-discriminator remove the domain. But both variable have max of mutual information 
+because they are actuallt the same…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;As in InfoGAN, they train another classifier to estimate the mutual information (they derive a lower bound and do variational Information maximization), they use gradient flipping, they use TRPO. Need to explain this
+3 things&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;How GAIL work: the policy is trained to maximize the reward defined as the discriminator loss
+        &lt;blockquote&gt;
+          &lt;p&gt;Is there any credit assignment problem or difficulty of non-stationarity? The reward is defined for any states even in general. But at the end it’s 0.5 for every state so should we stop before?&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;They use 2 hyerparameter: weight of domain confusion and number of look-ahead frames. Explain the influence.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="reading" /><category term="research" /><summary type="html">The Gibbard–Satterthwaite theorem: a simple proof (Benoit 2000)</summary></entry><entry><title type="html">Coordination Learning</title><link href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" rel="alternate" type="text/html" title="Coordination Learning" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/coordination-learning</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+
+&lt;p&gt;In this post I will show that when an IRL system aggregates demonstrations from multiple humans, the best response trajectory for a self-interested human
+is not the expert trajectory.&lt;/p&gt;
+
+&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Show that coordination literature don’t use imitation learning methods and imitation learning don’t think about coordination&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Instead of learning from a reward signal, Imitation Learning learn from observing optimal trajectories. This method is oftem
+related to young children that learn by imitating. Imitation of a trajectory performed by an agent with a different action set
+has been studied in this &lt;a href=&quot;https://arxiv.org/pdf/1703.01703.pdf&quot;&gt;paper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Yet when observing someone doing a task, the natural reaction is not to imitate but rather to assist. Hence we want to come up
+with a method to transform a trajectory on an action space $A_H$ into a trajectory on a joint action space $A_H \times A_R$.&lt;/p&gt;
+
+&lt;h1 id=&quot;experiment&quot;&gt;Experiment&lt;/h1&gt;
+
+&lt;h1 id=&quot;related-work&quot;&gt;Related Work&lt;/h1&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://github.com/bstadie/third_person_im&quot;&gt;Third Person Imitation Learning&lt;/a&gt;, Stadie et al. generate a policy that perform well
+in an environment slightly different from the expert. In Theory they assume different action spaces
+but in practice they perform only minor modification like changing the camera angle, the color of the 
+targets and length of the arm&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><summary type="html">Abstract</summary></entry><entry><title type="html">Experiments Report</title><link href="http://localhost:4000/posts/2020/04/experiments-report/" rel="alternate" type="text/html" title="Experiments Report" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/experiments-report</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/experiments-report/">&lt;p&gt;$\newcommand{\norm}[1]{\left\lVert#1\right\rVert}$&lt;/p&gt;
+
+&lt;h1 id=&quot;april-10-2020&quot;&gt;April 10, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;multi-agent-rl-with-asymmetric-expertise&quot;&gt;Multi-Agent RL with Asymmetric Expertise&lt;/h2&gt;
+&lt;p&gt;As seen on the plot, my current VPG agent don’t get anymore signal after just one iteration:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vpg.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I am adding a random action selection so that the policy does not get stuck directly. With an exploration rate of 
+0.5, the loss is not zero anymore but the gradient is also zero in average after one iteration.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vpg_exploration_rate.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s try without exploration rate but with an other optimizer: ADAM instead of SGD. Now the gradient don’t vanish but I have
+just noticed that I was minimizing instead of maximizing:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vpg_adam.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now with the right objective, the reward is continuously increasing:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vpg_adam2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s try with more iterations. Since the training is very slow, I train on GPU and I save the logprob during the sample like in the pytorch reinforce &lt;a href=&quot;https://github.com/pytorch/examples/blob/master/reinforcement_learning/reinforce.py&quot;&gt;tuto&lt;/a&gt; on github.
+Actually I got an error (Only Tensors created explicitly by the user (graph leaves) support the deepcopy protocol at the moment) and github don’t have ot because they 
+update the parameter a the end of each episode. What I can do is to sum the loss at sample time (against replay buffer attitude). The training is still very slow,
+maybe because we are sending action to the GPU during each timestep (!). Let’s compare to the tuto &lt;a href=&quot;https://github.com/openai/spinningup/blob/master/spinup/examples/pytorch/pg_math/1_simple_pg.py&quot;&gt;openai&lt;/a&gt;:
+    * They use one hidden layer of size 32
+    * They don’t use cuda
+I forget about the monitor and I decrease the batch size to 50. It’s better but still slow, so I might choose an AWS. We see that the learning is not stable:&lt;/p&gt;
+
+&lt;p&gt;I will try with v0 which has a lower max step and a batch of 100, but it’s still very slow.
+I sill have hope because the implementation in spinningup is actually very quick! Let’s find out what happen in my code tomorrow!&lt;/p&gt;
+
+&lt;h1 id=&quot;april-11-2020&quot;&gt;April 11, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;multi-agent-rl-with-asymmetric-expertise-1&quot;&gt;Multi-Agent RL with Asymmetric Expertise&lt;/h2&gt;
+&lt;p&gt;If I remember correctly, if we don;t put any random action the policy get stuck. I will add a video &lt;a href=&quot;https://github.com/openai/gym/wiki/FAQ#how-do-i-export-the-run-to-a-video-file&quot;&gt;monitoring&lt;/a&gt;
+and display the &lt;a href=&quot;https://about.gitlab.com/handbook/engineering/ux/technical-writing/markdown-guide/#display-local-videos-html5&quot;&gt;video&lt;/a&gt; here.&lt;/p&gt;
+
+&lt;h1 id=&quot;april-9-2020&quot;&gt;April 9, 2020&lt;/h1&gt;
+&lt;h2 id=&quot;best-response-to-maxentirl-for-two-agents&quot;&gt;Best response to MaxEntIRL for two agents&lt;/h2&gt;
+&lt;p&gt;Firstly we need to think about an environment where the regularizer can easily change the trajectory of $H_2$&lt;/p&gt;
+
+&lt;h2 id=&quot;multi-agent-rl-with-asymmetric-expertise-2&quot;&gt;Multi-Agent RL with Asymmetric Expertise&lt;/h2&gt;
+&lt;p&gt;Let’s create a easier game to solve, one agent at a time. When the environment robot go through the half part of the player, 
+a ball is created. The player has to catch it before the robot go to the other half. The two player can’t go to the other half.
+Do we assume that they see them? First no then yeah.&lt;/p&gt;
+
+&lt;p&gt;Since we want the robot to act, we need to create the game for the 3 players. But first let’s see how our algorithm perform 
+on a simple task of catching a ball set randomly. Let’s say the game stop at a certain time step. And let’s try to have
+a easy state space, like the (global) position of the player, and the position of the ball (-1,-1) if there is no ball.&lt;/p&gt;
+
+&lt;p&gt;Firslty let’s test our algorithm on a gym environment.&lt;/p&gt;
 
 &lt;h2 id=&quot;best-response-to-maxentirl-for-a-single-agent&quot;&gt;Best response to MaxEntIRL for a single agent&lt;/h2&gt;
+&lt;p&gt;Let’s try the sparse regularizer with &lt;a href=&quot;https://www.cvxpy.org/examples/machine_learning/lasso_regression.html&quot;&gt;CVXPY&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;april-8-2020&quot;&gt;April 8, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;multi-agent-rl-with-asymmetric-expertise-3&quot;&gt;Multi-Agent RL with Asymmetric Expertise&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Let’s think about an environment where we can train H1 and H2 separetely and the robot can help them but without joint training at first. The robot can make 
+their task easier, and see which one the robot follow at the end. The problem is how the robot can learn to help and not doing the task, he must have a restricted 
+action space that prevent him to get reward but can make reward of one human faster. Also the problem is the credit assignment when the robot is learning and the humans are
+already getting reward. The human should also be trained jointly and their reward should depend on robot action. So we should train both human separetely in a 2 players
+environment first. Or the robot needs to be in a certain position to enable H1 or H2 to do what they were train to do in a single player mode (put the ground in a different color).&lt;/li&gt;
+  &lt;li&gt;First I need to train one agent and see what he can do. So let’s continue OpenAI tutorial. I have implemented the vanilla PG and will test it tomorrow.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cooperation-learning&quot;&gt;Cooperation Learning&lt;/h2&gt;
+&lt;p&gt;To implement my ideas, let’s build on &lt;a href=&quot;https://github.com/rlworkgroup/garage&quot;&gt;garage&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;april-7-2020&quot;&gt;April 7, 2020&lt;/h1&gt;
+&lt;h2 id=&quot;best-response-to-maxentirl-for-a-single-agent-1&quot;&gt;Best response to MaxEntIRL for a single agent&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;To gain in productivity, I have made my code more modular. Here is the results discussed on 4/5, firstly for the LP and $\lambda=0$ as a sanity check:
+ Objective       | $\Phi A\rho$         &lt;br /&gt;
+ — |—
+ LP uniform (gives b)   | $[2.41210546 2.41210546 0.11599564]$
+ LP start middle    | $[2.07387119 2.07387119 0.3910971 ]$
+ QP $\lambda=0$     | $[2.07387037 2.07387037 0.39109759]$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We see that the solution of the QP without regularizer approximately gives the same as the solution of the LP with a non-uniform start distribution.
+We notice that even if the trajectories are symmetric, the rewards are not. This is because the initial $\theta$ is the same but is not necessarily symmetric!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/san_check.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let’s try with strictly positive value for $\lambda$:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Objective&lt;/th&gt;
+      &lt;th&gt;$\Phi A\rho$&lt;/th&gt;
+      &lt;th&gt;$\norm{ A\rho - b }_2$&lt;/th&gt;
+      &lt;th&gt;$\norm{ \Phi(A\rho - b) }_2$&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LP&lt;/td&gt;
+      &lt;td&gt;$[2.41210546 2.41210546 0.11599564]$&lt;/td&gt;
+      &lt;td&gt;$0$&lt;/td&gt;
+      &lt;td&gt;$0$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;QP&lt;/td&gt;
+      &lt;td&gt;$[[2.07387114] [2.07387114] [0.39109711]]$&lt;/td&gt;
+      &lt;td&gt;$1.4419671500227427$&lt;/td&gt;
+      &lt;td&gt;$0.551802253219664$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;QP&lt;/td&gt;
+      &lt;td&gt;$[[2.07387106][2.07387106][0.39109735]]$&lt;/td&gt;
+      &lt;td&gt;$1.4419657250082745$&lt;/td&gt;
+      &lt;td&gt;$0.5518024830705811$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;QP&lt;/td&gt;
+      &lt;td&gt;$[[2.07465583][2.07465583][0.39295618]]$&lt;/td&gt;
+      &lt;td&gt;$1.4324016870598635$&lt;/td&gt;
+      &lt;td&gt;$0.5517713795525508$&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;QP&lt;/td&gt;
+      &lt;td&gt;$[[2.07684072][2.07684072][0.39813496]]$&lt;/td&gt;
+      &lt;td&gt;$1.406848235873857$&lt;/td&gt;
+      &lt;td&gt;$0.5517313583602333$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/sym_env.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We see that the occupancy measure are already symmetric even if the trajectory is not. We need to put another constraint on the occupancy measure.
+To assess that, let’s plot the occupancy measure for each time step with lambda = 1000:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/occupancy_per_time.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next time let’s try on the asymmetric environment, and the initial environment where we saw a difference, for that we need to add 2 column and make the start closer to the left.&lt;/p&gt;
+
+&lt;p&gt;Actually let’s try with an asymmetric start, it will force the non-regularized QP to have an asymmetric occupancy measure.
+We see that the solution is indeed modified but we still don’t have the behavior from the paper:&lt;/p&gt;
+
+&lt;p&gt;Next time let’s try a sparse regularization at each timestep to force the occupancy to choose only one way at a time.&lt;/p&gt;
+
+&lt;h1 id=&quot;april-5-2020&quot;&gt;April 5, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;best-response-to-maxentirl-for-a-single-agent-2&quot;&gt;Best response to MaxEntIRL for a single agent&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let’s validate yesterday’s hypothesis. To do that, let’s write my optimization problem:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\max_{\rho} r^T\rho - \lambda\norm{ \Phi(A\rho - b) }_2^2&lt;/script&gt;
+
+    &lt;p&gt;where $\Phi$ is the feature matrix sending $\mathbb{R}^S$ into $\mathbb{R}^K$. Here $S=110$ and $K=3$. So of course 
+  regularizing in $\mathbb{R}^S$ and $\mathbb{R}^K$ is not the same. My intuition is that $A\rho$ and $b$ have more chance to
+  be closer in term of Euclidian distance in a space of smaller dimension (we can upperbound by the operator norm, 
+  can we relate it to the dimension?) thus the regularization would be stronger
+  if we don’t send $A\rho$ and $b$ into $\mathbb{R}^K$. Recall that for every value of $\lambda$, $b$ is fixed. Here is how I will 
+  process: For every value of $\lambda$, I will report $\Phi b$, $\Phi A\rho$, $\Phi(A\rho - b)$, $\norm{ \Phi(A\rho - b) }_2^2$ and 
+  $\norm{ A\rho - b }_2^2$ on a table and I will plot $A\rho$. But first let’s cut the part of the environment without importance to 
+  save computation time. Also I have just noticed that the reward are symmetric in the original paper! I create two environments:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A symmetric environment of size (7,5)&lt;/li&gt;
+      &lt;li&gt;An asymmetric environment of size (8,5)
+  Let’s plot the expert trajectory and the expected state-visitation count for the symmetric environment. The first strange thing is 
+  that computing $Ax$ does not give me the same thing as computing the SVF from $x$ (occupancy measure):&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/result_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;Let’s inspect $A$ again. Ok nevermind, I just mixed the horizon and the height, here is the corrected plot:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/result_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;And $b$ is $[2.41210546 2.41210546 0.11599564]$&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
+
+&lt;h2 id=&quot;best-response-to-maxentirl-for-a-single-agent-3&quot;&gt;Best response to MaxEntIRL for a single agent&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;Let me recall the objective: I want to get the same trajectory as in &lt;a href=&quot;https://arxiv.org/pdf/1606.03137.pdf&quot;&gt;CIRL&lt;/a&gt;:&lt;/p&gt;
@@ -37,12 +418,33 @@
       &lt;li&gt;Conclusions: I should test with symmetric features&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="experiments" /><summary type="html">April 4, 2020</summary></entry><entry><title type="html">Gibbard’s Theorem and Inverse Reinforcement Learning</title><link href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" rel="alternate" type="text/html" title="Gibbard's Theorem and Inverse Reinforcement Learning" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="experiments" /><summary type="html">$\newcommand{\norm}[1]{\left\lVert#1\right\rVert}$</summary></entry><entry><title type="html">Gibbard’s Theorem and Inverse Reinforcement Learning</title><link href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" rel="alternate" type="text/html" title="Gibbard's Theorem and Inverse Reinforcement Learning" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Can we call it IRL for social robots? Or artificial social choice theory, or social choice theory for robots, then 2 parts: strategy-proofness of IRL, fairness of multi agent systems (a paper already talk avbout the fact that ressouce are usually given to the most performant)&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;In this post I will show that when an IRL system aggregates demonstrations from multiple humans, the best response trajectory for a self-interested human
 is not the expert trajectory.&lt;/p&gt;
 
 &lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Most machine Learning algorithm are built with the assumption that the distribution of the data won’t change
+between training and execution. Recently efficient meta learning have been built to enable an efficient work on out-of-distibution
+data, but the tasks remain similar. When we think about humans, it’s hard to think about any stationary distribution. Each human has
+his unique preferences, beliefs and decision-maker mechanism, and each human is repeatedly evolving. Moreover human are decision-maker 
+and will change their behavior in presence of a robot. It’s necessary to think about multi-agent methods when
+treating human data:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rethink MA(I)RL for social… Firstly IRL is manipulable, then MARL no fair. Human Compatible IRL/RL.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Look at literature about social robots&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Social choice theory is the branch of Economics modeling and analyzing collective decision-making
 from the perspective of aggregating individual preferences. For example it is concerned with the 
@@ -62,7 +464,138 @@ choice theory discussed above, the question we want to answer is: &lt;em&gt;if a
 preferences of two individuals by aggregating their two trajectories, does the expert trajectory remain the best response
 of each individual?&lt;/em&gt;&lt;/p&gt;
 
+&lt;h1 id=&quot;meeting-with-tom-10-11&quot;&gt;Meeting with tom (10-11)&lt;/h1&gt;
+
+&lt;h2 id=&quot;manifesto-for-multi-agent-inverse-reinforcement-learning-why-should-we-avoid-inverse-reinforcement-learning-to-understand-human-values&quot;&gt;Manifesto for Multi-Agent Inverse Reinforcement Learning: Why should we avoid Inverse Reinforcement Learning to understand human values?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Game: how does the payoffs and competition change when the robot is present? How does it perturbe the behavior of both humans? Theory+Experiment&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Besides alleviating reward engineering, a longer term and more conceptual purpose of Inverse Reinforcement Learning 
+is to learn about human values. The idea is that it’s hard for a human to quantify their values and preferences, and IRL propose to 
+learn this by itself by observing their behaviors. Yet a possible loophole is that it assumes that the observed behavior truthfully express 
+the values and preferences. Thinking about manipulation voting [OTHER EXAMLE], it appear as a big assumption.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utilitarism states that the best action is the one that create the greatest happiness
+in the greatest number of &lt;a href=&quot;https://arxiv.org/pdf/2001.09768v1.pdf&quot;&gt;people&lt;/a&gt;. Thus a utilitarian robot aacting
+for a group of people would maximize the sum of their utilities. At first sight it sounds
+like an appealing objective to motivates fair actions. Yet we can think about asymetric level of expertise.
+aims to maximize global utility and appears as a fair choice. But if one human is less good as expresing 
+himself, then the robot would optimize for the other [BE MORE CLEAR]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let’s think of single-agent Inverse Reinforcement Learning. The technical purpose of IRL is that
+engineering reward is hard and observing an expert to deduce a reward or a policy is easier in some cases. 
+A famous example is the success of training autonomous helicopter threw &lt;a href=&quot;http://www.robotics.stanford.edu/~ang/papers/ijrr10-HelicopterAerobatics.pdf&quot;&gt;apprenticeship learning&lt;/a&gt;.
+The conceptual purpose of IRL is that for less obvious tasks, it’s hard for a human to define what he wants
+in terms of reward function. This problem is also studied in Economics since the problem is that human have 
+hard time to externalize their preference. So instead of asking them what they want in terms of utility function or
+reward function, we observe them and deduce what they want. The problem of observing a human, that is not present 
+when observing an helicopter, is that his behavior does not only reflect his internal preference but also the
+norms of the world he is living in. When we study a driver in isolation, we might think that the sense of the road is part of
+its preference while he is just following norms (NOT A GOOD EXAMPLE, BETTER ONE?). In the contrary, when studying several humans, we might
+understand that driving in the road is a game with a dual equilibrium due to a coordination problem, and 
+the humans are indifferent to the sense of the road provided that they reach one of the two equilibria. 
+Studying humans inside their community will enable to understand in what kind of equilibria they are in, and distinguish
+their true preferences from the external influence.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Single Agent IRL&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let’s think about a system that would use IRL on trajectories from multiple humans. Is it strategyproof? If now we see the 
+system as part of the game, can we see emerge behaviors that would incentivize the humans to act truthfully? We can see second bid auction
+as&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let’s think about a robot inside a community of humans that would have to maximize a the utilitarian aggregation of reward,
+would he end up helping the least advantaged? Maximin? Can we think of a way to understand the signal?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;An implementation of Multi Agent IRL&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I had a very exiting meeting with Tom. He introduced me to the problem of norm. The question is does we want AI to be purely
+descriptive or does we want AI to have a part of norms. Putting a norm in the AI has always a risk to make it biased. The question 
+is is there a way to learn the norm? Paradoxaly, can we use a descriptive or positive approach to learn the norm? This sounds impossible
+for a human because the norm is the description of all the global and he would have to extract himself to learn the norm. On a other side, we can look
+back at the time and see that what they defined as a norm in the middle age is define as saddistic and marginal now. The only way to define a norm
+is to have a system that extract itself of the world and learn the norm by observing the behavior. 
+We can define a norm as what enable people to reach a Paretto-efficient equilibria rather than a Nash equilibria, but we still need to identify the game.
+There is some methos in multi=agent inverse reinfordemtn learning that&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We need to distinguish two types of norm: norms emerging due to the presence of coordination problem, and norm
+emerging due to the presence of Pareto efficient equilibria that are not Nash equilibria. For the former case, we can think 
+of languages or the sense of the road. Since in coordianation games, the Nash equilibria is condiionned by coordinated behaviors, in this case acceptance norms are reached 
+naturally by self-interested agents. In the later case, we can think (look at mechanism design litterature).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Problem of self awareness: do we prefer to put water in India or&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mechanism Design: What enable Vickrey to defeat Gibbard?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Strategy-Proofness of IRL: Does Car should have norms?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discover norm threw multi-agent IRL&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Assistance Game and Mechanism Design: discovering what enable Vickrey to alleviate Gibbard. They say constraint of utilities,
+can we see that as norms? Norms make people think&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;theory&quot;&gt;Theory&lt;/h1&gt;
+
+&lt;p&gt;Our goal is to demonstrate that kind of result:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The best response trajectory to a IRL system depend on the other human’s trajectories. Thus an IRL mechanism is not 
+strategy-proof.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A way to prove it would be to reduce IRL to a voting mechanism, by first starting with a MAB. Another way would be to generalize Gibbard to 
+utilities and then reduce IRL to cardinal utilities on features. Or we can look for results in mechanism design and see IRL as a game.&lt;/p&gt;
+
+&lt;p&gt;Firstly let’s formalize inverse reinforcement learning in the lense&lt;/p&gt;
+
 &lt;h1 id=&quot;experiment&quot;&gt;Experiment&lt;/h1&gt;
+
+&lt;h2 id=&quot;practical-manipulation-of-inverse-reinforcement-learning&quot;&gt;Practical Manipulation of Inverse Reinforcement Learning&lt;/h2&gt;
+
+&lt;p&gt;But in any case, it’s useful to understand what MaxEnt IRL do in the case where features are available: given a trajectory $(s_1,a_1,…,a_{T-1},s_T)$, 
+the only thing that the IRL system keep is the empirical feature count $\sum_{t=1}^{T} \phi(\tilde{s}_t)$ and the empirical initial state distribution $\rho_0$. The 
+objective is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\omega^* = \max_{\omega} P(\tilde{\tau}|\omega,\rho_0) \\
+P(\tilde{\tau}|\omega,\rho_0) = \frac{e^{\sum_{t=1}^{T}\phi(s_t)^T\omega}}{Z(\omega, \rho_0)} \\
+Z(\omega, \rho_0) = \sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}&lt;/script&gt;
+
+&lt;p&gt;Assuming we have two independent trajectories, we can write the log-likelihood as:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L(\omega) = \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t)^T\omega - 2 \log \sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}&lt;/script&gt;
+
+&lt;p&gt;The Log-Sum-Exp term is convex, so our objective is convex (we maximize a linear and a concave function). Let’s compute the gradient:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\nabla_{\omega} L(\omega) = \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \frac{\sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega} \sum_{t=1}^{T}\phi(s^{\tau}_t)}{\sum_{\tau, s_0 \sim \rho_0} e^{\sum_{t=1}^{T}\phi(s^{\tau}_t)^T\omega}} \\
+= \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \sum_{\tau, s_0 \sim \rho_0} P(\tau|\omega) \sum_{t=1}^{T}\phi(s^{\tau}_t) \\
+= \sum_{i=1}^{2} \sum_{t=1}^{T}\phi(s^i_t) - 2 \sum_{s} P(s|\omega, \rho_0)\phi(s)&lt;/script&gt;
+
+&lt;p&gt;Where the distribution in the last term is the state visitation frequency, efficiently computable by dynamic programming:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(s|\omega, \rho_0) = \sum_{t=1}^{T}P^{\pi^*(\omega)}(s_t=s|s_0 \sim \rho_0)&lt;/script&gt;
+
+&lt;p&gt;We see that the optimal solution is $\omega$ such that the expected feature count under $\omega$ matches 
+the empirical feature count of the observed trajectories. Thus a human can manipulate MaxEntIRL by producing 
+a trajectory such that the empirical feature count of the observed trajectories matches his own empirical feature count. 
+The best response of $H_2$ to $H_1$ and the MaxEntIRL system is then:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\tau^*_2(\tau_1) = \min_{\tau_2} \norm{\phi(\tau_2) - (2\mathbb{E}_{\tau \sim \pi^*(w_2), s_0 \sim \rho_0}(\phi(\tau) )- \phi(\tau_1) )&lt;/script&gt;
 
 &lt;h1 id=&quot;related-work&quot;&gt;Related Work&lt;/h1&gt;
 
@@ -71,8 +604,20 @@ In this work, Hadfield-Menell et al. shows that the best response trajectory to 
 the preferences of a single human is not the expert trajectory, but rather involve active teaching.&lt;/p&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><summary type="html">Abstract</summary></entry><entry><title type="html">Goals</title><link href="http://localhost:4000/posts/2020/04/goals/" rel="alternate" type="text/html" title="Goals" /><published>2020-04-04T00:00:00-07:00</published><updated>2020-04-04T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/goals</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/goals/">&lt;h1 id=&quot;research-goals-for-my-phd&quot;&gt;Research Goals for my PhD&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Create an Artificial Intelligence that can&lt;/p&gt;
+  &lt;li&gt;Create an AI system that is efficient among multiple humans
+    &lt;ul&gt;
+      &lt;li&gt;Create an AI that efficiently build on its past experience to efficiently adapt to new humans&lt;/li&gt;
+      &lt;li&gt;Create an AI that is robust to strategic behaviors
+        &lt;ul&gt;
+          &lt;li&gt;Identify this strategic behaviors&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Create an AI that is fair
+        &lt;ul&gt;
+          &lt;li&gt;Assess the fairness of current methods among humans with asymmetric expertise&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Does knowing if we can create IRL with good mechanism design is really interesting for me?&lt;/p&gt;
@@ -83,10 +628,8 @@ the preferences of a single human is not the expert trajectory, but rather invol
   &lt;li&gt;
     &lt;p&gt;Am I interested in concrete applications like robotics?&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I want to show that intelligence can be created with multiagent systems, that is dive into the &lt;a href=&quot;https://arxiv.org/abs/1903.00742&quot;&gt;autocurica&lt;/a&gt; idea of DeepMind. Formalize
-emrgent behaviors, connect it to other disciplines (biology, history, philosophy, economics, etc.). What applications in the real world can I imagine?&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;I want to show that intelligence can be created with multiagent systems, that is dive into the &lt;a href=&quot;https://arxiv.org/abs/1903.00742&quot;&gt;autocurica&lt;/a&gt; idea of DeepMind. Formalize
+emrgent behaviors, connect it to other disciplines (biology, history, philosophy, economics, etc.). What applications in the real world can I imagine?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;professional-goals&quot;&gt;Professional Goals&lt;/h1&gt;
@@ -98,7 +641,7 @@ emrgent behaviors, connect it to other disciplines (biology, history, philosophy
 &lt;h1 id=&quot;personal-goals&quot;&gt;Personal Goals&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Always be in a powerful state
+  &lt;li&gt;Always be in a &lt;a href=&quot;https://doist.com/blog/high-energy-level/&quot;&gt;powerful&lt;/a&gt; state
     &lt;ul&gt;
       &lt;li&gt;Fight depression
         &lt;ul&gt;
@@ -120,130 +663,4 @@ emrgent behaviors, connect it to other disciplines (biology, history, philosophy
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="self-development" /><summary type="html">Research Goals for my PhD</summary></entry><entry><title type="html">Daily Progress</title><link href="http://localhost:4000/pposts/2020/04/daily-progress/" rel="alternate" type="text/html" title="Daily Progress" /><published>2020-04-03T00:00:00-07:00</published><updated>2020-04-03T00:00:00-07:00</updated><id>http://localhost:4000/pposts/2020/04/daily-progress</id><content type="html" xml:base="http://localhost:4000/pposts/2020/04/daily-progress/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;I have spent the day trying to implement the best response to maxirl. I have created an experiment journal, I think I will feel that kind of day more useful with that, it trains me how to communicate about my experiment, it forces me to understand what I do and I will be more productive not trying the same thing twice.&lt;/li&gt;
-  &lt;li&gt;I have continued to watch Abbeel’s lecture. I really think that this format is good (30min) but I should be sure that I don’t spend long time to write the post. Ideally, 20 minutes of watching
-and 10 minutes of writing.&lt;/li&gt;
-  &lt;li&gt;SD: The &lt;a href=&quot;https://www.youtube.com/watch?v=UMmOQCf98-k&quot;&gt;interviewed businessman&lt;/a&gt; talked about reading every day a paper where he wrote his goals. I have created the post goals because of that, I think it’s always good
-to understand his small daily actions as part of a long-term goal. He also gave a concrete technique: if we are not in the powerful state, breath 6 times and AIA: awareness (what i’m thinking), intention (what I want to do), action (small action to handle it).&lt;/li&gt;
-  &lt;li&gt;Gonna shut down computers at 10 and take melatonin, let’s not put any alarm and write down what time I wake up. Tomorrow let’s try to not take melatonin anymore.
-    &lt;blockquote&gt;
-      &lt;p&gt;Tomorrow, let’s continue the experiment on MACIRL and send to Dylan and Simon (this time for real!) and think about the theory: can we prove a gibbard version for sequential decision-making and observations?
-I should read different versions of the proof of Gibbard. Maybe start with a multi-armed bandit setting. Then, I want to think about my coordination IL project, write a post about it and read Abbeel’s article. Then,
-continue the tutorial on openai, implement PPO and make it work for my multi agent environment. Start to think about a post about multiagent systems and the emergence of behaviors.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;april-3-2020&quot;&gt;April 3, 2020&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;I have finally finished my first memo for the Beneficial AI class. It’s a good idea to do memos for every lectures, what about publishing memo as posts?&lt;/li&gt;
-  &lt;li&gt;I have created this website. Let’s try to update it daily.&lt;/li&gt;
-  &lt;li&gt;I have done the homework 9 for the EECS227 class. I should really do one exercise per day, would be more productive I think.&lt;/li&gt;
-  &lt;li&gt;I have started to watch the deep unsupervised lecture from Abbeel. I think a good method is to watch 30min then put what we think is important in a post.&lt;/li&gt;
-  &lt;li&gt;Self-Development: The &lt;a href=&quot;https://www.youtube.com/watch?v=PE0TedFPgH8&quot;&gt;interviewed neuroscientist&lt;/a&gt; told about how we can transform our brain by just imagining success or being surrounded by successful people. 
-I should never forget that: being surrounded by other smart PhD students is an advantage. What I am watching and who I am speaking to influence my brain. I should definitely talk to Abbeel.
-    &lt;blockquote&gt;
-      &lt;p&gt;Tomorrow, after putting the bag in Yuting’s place, finish the MACIRL experiment and send the result to Dylan and Simon&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="self-development" /><summary type="html">April 4, 2020 I have spent the day trying to implement the best response to maxirl. I have created an experiment journal, I think I will feel that kind of day more useful with that, it trains me how to communicate about my experiment, it forces me to understand what I do and I will be more productive not trying the same thing twice. I have continued to watch Abbeel’s lecture. I really think that this format is good (30min) but I should be sure that I don’t spend long time to write the post. Ideally, 20 minutes of watching and 10 minutes of writing. SD: The interviewed businessman talked about reading every day a paper where he wrote his goals. I have created the post goals because of that, I think it’s always good to understand his small daily actions as part of a long-term goal. He also gave a concrete technique: if we are not in the powerful state, breath 6 times and AIA: awareness (what i’m thinking), intention (what I want to do), action (small action to handle it). Gonna shut down computers at 10 and take melatonin, let’s not put any alarm and write down what time I wake up. Tomorrow let’s try to not take melatonin anymore. Tomorrow, let’s continue the experiment on MACIRL and send to Dylan and Simon (this time for real!) and think about the theory: can we prove a gibbard version for sequential decision-making and observations? I should read different versions of the proof of Gibbard. Maybe start with a multi-armed bandit setting. Then, I want to think about my coordination IL project, write a post about it and read Abbeel’s article. Then, continue the tutorial on openai, implement PPO and make it work for my multi agent environment. Start to think about a post about multiagent systems and the emergence of behaviors.</summary></entry><entry><title type="html">Deep Unsupervised Learning</title><link href="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/" rel="alternate" type="text/html" title="Deep Unsupervised Learning" /><published>2020-04-03T00:00:00-07:00</published><updated>2020-04-03T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/deep-unsupervised-learning</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/deep-unsupervised-learning/">&lt;h1 id=&quot;flow-models&quot;&gt;Flow Models&lt;/h1&gt;
-
-&lt;p&gt;We got samples $(x_1, …, x_n) \in X^n, X\subset \mathbb{R} $ from an unknown probability distribution $p \in \Delta X$. We want
-to fit the parameters of a model distribution $p_{\theta}$ and sample from it. If we have an idea of the form of $p$,
-we can directly optimize $\theta$ for the log-likelihood of the data:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:1} \theta^* = \text{argmax}_{\theta} \sum^n \log p_{\theta}(x_i)&lt;/script&gt;
-
-&lt;p&gt;Yet in the real world we have no idea of the form that might have $p$ and we don’t want to have issue due to
-&lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/01/10/latent-variables-and-model-mis-specification/&quot;&gt;model mis-specification&lt;/a&gt;.
-  Therefore we want to optimize with the minimum of assumption on the structure of $p$. Here we only assume that
-  $p$ has been obtained by transforming a known distribution (a gaussian for example) with a differentiable and invertible function:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:2} p_{\theta}(x)dx = p(z)dz \\
-    z = f_{\theta}(x) \\
-    z \sim \mathcal{N}(0,1)&lt;/script&gt;
-
-&lt;p&gt;By injecting this model $\ref{eq:2}$ in the log-likelihood of the data $\ref{eq:1}$, the optimization problem becomes:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\theta^* = \text{argmax}_{\theta} \sum^n \log p(f_{\theta}(x_i)) + \log |\frac{df_{\theta}}{dx}(x_i)|&lt;/script&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Is there a derivative operator in the AutoDif package? What is the coast to include the derivative of the output in the objective?&lt;/p&gt;
-
-  &lt;p&gt;In PyTorch the method torch.autograd.grad() can be used to include derivative in the objective&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In practice we represent the flow $f$ as the output of a neural network and optimize $\theta$ using stochastic gradient descent.
-Once $\theta$ has been optimized we can sample from $p$ following:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;z \sim \mathcal{N}(0,1) \\
-    x = f_{\theta}^{-1}(z)&lt;/script&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What is the family of invertible NN and how can we efficiently invert the output?&lt;/p&gt;
-
-  &lt;p&gt;Any compositions of invertible and differentiable functions is also invertible and differentiable. For a 
-continuous variable, we just have to take invertible activation functions like Sigmoid or Tanh. For more dimension, we might make sure that the weight matrices keep invertible.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Coming back to our first motivation to alleviate model mis-specification, we might wonder how large is the set of distributions 
-we can reach with this method. For continuous one-dimensional variable, every distribution can be reached by a flow. To see that, consider 
-a distribution $p \in \Delta \mathbb{R}$ with Cumulative Distribution Function $F$ and define $F^{-1}$ as:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall u \in [0,1], F^{-1}(u) = \inf \{x: F(x)=u\}&lt;/script&gt;
-
-&lt;p&gt;Then, if U is the uniform distribution on [0,1], the CDF of $F^{-1}(U)$ is F:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \in \mathbb{R}, p(F^{-1}(U)\leq x) = p(U \leq F(x)) = F(x)&lt;/script&gt;</content><author><name>Your Sidebar Name</name></author><category term="lectures" /><summary type="html">Flow Models</summary></entry><entry><title type="html">Reading History</title><link href="http://localhost:4000/posts/2020/04/reading-history/" rel="alternate" type="text/html" title="Reading History" /><published>2020-04-02T00:00:00-07:00</published><updated>2020-04-02T00:00:00-07:00</updated><id>http://localhost:4000/posts/2020/04/reading-history</id><content type="html" xml:base="http://localhost:4000/posts/2020/04/reading-history/">&lt;h1 id=&quot;april-4-2020&quot;&gt;April 4, 2020&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Writing my post on IRL and Gibbard’s theorem
-    &lt;ul&gt;
-      &lt;li&gt;Rosenfeld’s &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdf/10.2200/S00820ED1V01Y201712AIM036&quot;&gt;book&lt;/a&gt; on predicting Human Decision-Making. Other interesting books in the same collection:
-        &lt;ul&gt;
-          &lt;li&gt;An &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00091ED1V01Y200705AIM002&quot;&gt;introduction&lt;/a&gt; to multiagent systems&lt;/li&gt;
-          &lt;li&gt;An &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00108ED1V01Y200802AIM003&quot;&gt;introduction&lt;/a&gt; to game theory&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00355ED1V01Y201107AIM016&quot;&gt;book&lt;/a&gt; about cooperative games&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00372ED1V01Y201107AIM014&quot;&gt;book&lt;/a&gt; about preferences&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00559ED1V01Y201312AIM027&quot;&gt;book&lt;/a&gt; about aggregation&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00568ED1V01Y201402AIM028&quot;&gt;book&lt;/a&gt; about human-robot teaching&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00564ED1V01Y201311AIM024&quot;&gt;book&lt;/a&gt; about general games&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00765ED1V01Y201704AIM034&quot;&gt;book&lt;/a&gt; about multi-objective optimization&lt;/li&gt;
-          &lt;li&gt;A &lt;a href=&quot;https://www-morganclaypool-com.libproxy.berkeley.edu/doi/pdfplus/10.2200/S00832ED1V01Y201802AIM037&quot;&gt;book&lt;/a&gt; about lifelong learning&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;april-3-2020&quot;&gt;April 3, 2020&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;By reading a post on EECS227’s Piazza about complementary slackness
-    &lt;ul&gt;
-      &lt;li&gt;Vazirani’s &lt;a href=&quot;http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf&quot;&gt;book&lt;/a&gt; on Algorithms.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;april-2-2020&quot;&gt;April 2, 2020&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;During the writing of my &lt;a href=&quot;/files/memo1.pdf&quot;&gt;memo&lt;/a&gt; “Rational Decision-Making for a Group of Individuals” for the &lt;a href=&quot;https://people.eecs.berkeley.edu/~russell/classes/cs294/s20/announcement.html&quot;&gt;Beneficial AI&lt;/a&gt; class
-    &lt;ul&gt;
-      &lt;li&gt;Jakob’s &lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/02/07/model-mis-specification-and-inverse-reinforcement-learning/&quot;&gt;post&lt;/a&gt; on misspecification and IRL
-        &lt;ul&gt;
-          &lt;li&gt;A more general view of mis-specification can be found in a previous &lt;a href=&quot;https://jsteinhardt.wordpress.com/2017/01/10/latent-variables-and-model-mis-specification/#comments&quot;&gt;post&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;A classical &lt;a href=&quot;https://leon.bottou.org/publications/pdf/tr-2012-09-12.pdf&quot;&gt;article&lt;/a&gt; introducing causal inference and applying it to ad biding. Wondering how I can relate causal inference to mechanism design in the case of IRL.&lt;/li&gt;
-          &lt;li&gt;Evans’ &lt;a href=&quot;https://agentmodels.org/&quot;&gt;book&lt;/a&gt; about modelling agents&lt;/li&gt;
-          &lt;li&gt;The mentionned issue about the different action spaces leads me to Abbeel’s &lt;a href=&quot;https://openreview.net/pdf?id=B16dGcqlx&quot;&gt;article&lt;/a&gt;. Can be a good start for the Coordination IRL project.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Armstrong’s &lt;a href=&quot;https://www.lesswrong.com/posts/GfMGa9e79AfDMLj36/best-utility-normalisation-method-to-date&quot;&gt;post&lt;/a&gt; on normalizing utilities. LessWrong has a lot of useful resource to work on human-compatible AI.
-        &lt;ul&gt;
-          &lt;li&gt;He wrote an older similar &lt;a href=&quot;https://www.lesswrong.com/posts/hBJCMWELaW6MxinYW/intertheoretic-utility-comparison&quot;&gt;post&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="reading" /><category term="research" /><summary type="html">April 4, 2020 Writing my post on IRL and Gibbard’s theorem Rosenfeld’s book on predicting Human Decision-Making. Other interesting books in the same collection: An introduction to multiagent systems An introduction to game theory A book about cooperative games A book about preferences A book about aggregation A book about human-robot teaching A book about general games A book about multi-objective optimization A book about lifelong learning</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Your Sidebar Name</name></author><category term="research" /><category term="self-development" /><summary type="html">Research Goals for my PhD</summary></entry></feed>

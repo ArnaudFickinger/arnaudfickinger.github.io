@@ -19,7 +19,7 @@
 
 
 
-<title>Daily Progress - Arnaud Fickinger</title>
+<title>Optimal and Adaptive Control - Arnaud Fickinger</title>
 
 
 
@@ -29,15 +29,15 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Arnaud Fickinger">
-<meta property="og:title" content="Daily Progress">
+<meta property="og:title" content="Optimal and Adaptive Control">
 
 
-  <link rel="canonical" href="http://localhost:4000/pposts/2020/04/daily-progress/">
-  <meta property="og:url" content="http://localhost:4000/pposts/2020/04/daily-progress/">
+  <link rel="canonical" href="http://localhost:4000/posts/2020/04/optimal-adaptive-control/">
+  <meta property="og:url" content="http://localhost:4000/posts/2020/04/optimal-adaptive-control/">
 
 
 
-  <meta property="og:description" content="Laplace Approximation">
+  <meta property="og:description" content="Control">
 
 
 
@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2020-04-03T00:00:00-07:00">
+  <meta property="article:published_time" content="2020-04-10T00:00:00-07:00">
 
 
 
@@ -262,15 +262,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Daily Progress">
-    <meta itemprop="description" content="Laplace Approximation">
-    <meta itemprop="datePublished" content="April 03, 2020">
+    <meta itemprop="headline" content="Optimal and Adaptive Control">
+    <meta itemprop="description" content="Control">
+    <meta itemprop="datePublished" content="April 10, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Daily Progress
+          <h1 class="page__title" itemprop="headline">Optimal and Adaptive Control
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -284,7 +284,7 @@
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-03T00:00:00-07:00">April 03, 2020</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-10T00:00:00-07:00">April 10, 2020</time></p>
         
         
              
@@ -294,20 +294,24 @@
       
 
       <section class="page__content" itemprop="text">
-        <h1 id="laplace-approximation">Laplace Approximation</h1>
+        <h1 id="control">Control</h1>
 
-<p>To approximate an integral, we can start by a second-order Taylor expansion:</p>
+<p>In the real world we can’t usually observe the full state of the object we want to control. Thus we assume that a map between state and observation
+is given:</p>
 
-<p>$$f(x) \sim f(x^<em>) + \nabla f(x^</em>)^T(x-x^*) + \frac{1}{2}=</p>
+<script type="math/tex; mode=display">h: S \times A \rightarrow O</script>
 
-<p>We end up with Gaussian integrals</p>
+<p>In control theory the notations for the corresponding variable are $x$, $u$ and $y$.</p>
 
-<p>Legibility and Predictability are different because one normalize over trajectories and the other normalize other goals
-so intuitively in one case we think about the other trajectories and in the other case we think about the other goals</p>
+<p>What happen is that many states can be mapped to the same observation. In RL we have seen that
+in general there is no policy on observation that reach the optimal behavior.</p>
 
-<ul>
-  <li>To optimize the legibility, think bout the Newton integral</li>
-</ul>
+<p>It’s important to think about the state and not just the observation because the dynamics
+is given for the state threw a vector valued differential equation:</p>
+
+<script type="math/tex; mode=display">f: S \times A \rightarrow \mathbb{R}^{dim(S)} \\
+f(x,u) = \.{x}</script>
+
 
         
       </section>
@@ -332,7 +336,11 @@ so intuitively in one case we think about the other trajectories and in the othe
     
       
       
-      <a href="http://localhost:4000/tags/#self-development" class="page__taxonomy-item" rel="tag">self-development</a>
+      <a href="http://localhost:4000/tags/#lectures" class="page__taxonomy-item" rel="tag">lectures</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#project" class="page__taxonomy-item" rel="tag">project</a>
     
     </span>
   </p>
@@ -349,11 +357,11 @@ so intuitively in one case we think about the other trajectories and in the othe
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2020/04/optimal-adaptive-control/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2020/04/optimal-adaptive-control/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/pposts/2020/04/daily-progress/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2020/04/optimal-adaptive-control/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -361,11 +369,11 @@ so intuitively in one case we think about the other trajectories and in the othe
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/posts/2020/04/beneficial-ai/" class="pagination--pager" title="Beneficial AI
+      <a href="http://localhost:4000/posts/2020/04/numerical-optimization/" class="pagination--pager" title="Numerical Optimization
 ">Previous</a>
     
     
-      <a href="http://localhost:4000/posts/2020/04/gibbard-theorem-and-irl/" class="pagination--pager" title="Coordination Learning
+      <a href="http://localhost:4000/posts/2020/04/goals/" class="pagination--pager" title="Daily Goals
 ">Next</a>
     
   </nav>
@@ -479,49 +487,6 @@ so intuitively in one case we think about the other trajectories and in the othe
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/posts/2020/04/optimal-adaptive-control/" rel="permalink">Optimal and Adaptive Control
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-10T00:00:00-07:00">April 10, 2020</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="control">Control</h1>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-        
-          
-
-
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
         <a href="http://localhost:4000/posts/2020/04/numerical-optimization/" rel="permalink">Numerical Optimization
 </a>
       
@@ -546,6 +511,49 @@ so intuitively in one case we think about the other trajectories and in the othe
   <li>The book don’t handle discrete optimization. In RL, we want to solve for a policy. If we create |S| optimization problems
 and solve for a stochastic policy, then we have a continuous space. But we can’t separate each state.</li>
 </ul>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/04/papers_reading/" rel="permalink">Papers Reading
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  5 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-05T00:00:00-07:00">April 05, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><h1 id="the-gibbardsatterthwaite-theorem-a-simple-proof-benoit-2000">The Gibbard–Satterthwaite theorem: a simple proof (Benoit 2000)</h1>
 
 </p>
     

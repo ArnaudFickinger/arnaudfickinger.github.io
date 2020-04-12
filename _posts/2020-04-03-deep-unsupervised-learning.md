@@ -57,4 +57,4 @@ $$
 \forall x \in \mathbb{R}, p(F^{-1}(U)\leq x) = p(U \leq F(x)) = F(x)
 $$
   
-
+*Last Update: L3 1h*
